@@ -1,0 +1,32 @@
+# Whimfate
+
+> Whimfate is a black-on-black collection of free, browser-first randomizers and funny games for low-stakes decisions: team splitting, coin tossing, dice rolling, either-or picks, random numbers, and the eternal “you choose” loop.
+
+The tools are designed to be quick to use, easy to share, and usable without an account. Team Splitter, Coin Flip, and Dice Roller are live. Other game routes are reserved while their modules are built. Avoid treating the games as a replacement for judgment in consequential decisions or regulated drawings.
+
+## Live games
+- [Whimfate homepage](https://wimfate.com/): Browse the games and short field notes.
+- [Team Splitter](https://wimfate.com/team-splitter/): Paste names, choose the number of teams, randomize locally, then copy, share, or download results.
+- [Coin Flip](https://wimfate.com/coin-flip/): A virtual heads-or-tails coin toss with local flip counts and shareable results.
+- [Dice Roller](https://wimfate.com/dice-roll/): Roll one or more D4, D6, D8, D10, D12, D20, or D100 dice and share the total.
+
+## Project and principles
+- [About Whimfate](https://wimfate.com/about.html): What the project is and what it is for.
+- [Our way](https://wimfate.com/our-way.html): Practical principles for quick, transparent browser tools.
+- [Manifesto](https://wimfate.com/manifesto.html): The playful philosophy behind the games.
+- [Ideas](https://wimfate.com/ideas.html): Field notes and light-hearted decision ideas.
+
+## Field notes
+- [Why randomness feels like magic](https://wimfate.com/why-randomness-feels-like-magic.html): Patterns, chance, and the stories our brains tell.
+- [How to split teams fairly](https://wimfate.com/how-to-split-teams-fairly.html): Balanced group assignment for casual games and activities.
+- [The dinner group chat is not a democracy](https://wimfate.com/decision-fatigue.html): A funny guide to indecision and small choices.
+
+## Policies
+- [Privacy](https://wimfate.com/privacy.html): Draft privacy policy; verify against final analytics and advertising configuration.
+- [Terms](https://wimfate.com/terms.html): Draft usage terms; review before public launch.
+
+## Upcoming routes
+- [The Daily Oracle](https://wimfate.com/daily-oracle/): Planned shared daily prompt.
+- [This or That](https://wimfate.com/this-or-that/): Planned fast binary-choice game.
+- [Random Number Generator](https://wimfate.com/random-number-generator/): Planned range-based number picker.
+- [The Decision Wheel](https://wimfate.com/decision-maker/): Planned spinner for low-stakes decisions.

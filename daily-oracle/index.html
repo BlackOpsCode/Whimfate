@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Open your Whimfate Daily Oracle: a fresh symbolic reading, a tiny daily mission, and a little cosmic nonsense to carry into your day.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="describedby" href="/llms.txt">
+  <link rel="canonical" href="https://wimfate.com/daily-oracle/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Whimfate">
+  <meta property="og:title" content="The Daily Oracle — Whimfate">
+  <meta property="og:description" content="One daily reading. One tiny mission. A little cosmic nonsense. The Whimfate Daily Oracle is ready.">
+  <meta property="og:url" content="https://wimfate.com/daily-oracle/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>The Daily Oracle — A Little Sign for Today | Whimfate</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Whimfate Daily Oracle",
+    "url": "https://wimfate.com/daily-oracle/",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Any",
+    "description": "A free daily oracle with a symbolic theme, a short message and a tiny mission for reflection and entertainment."
+  }
+  </script>
+  <script src="../site.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="page-game-module page-daily-oracle">
+  <div id="site-header"></div>
+  <main id="main-content" class="oracle-main shell">
+    <header class="oracle-intro">
+      <p class="oracle-kicker"><span class="status-dot" aria-hidden="true"></span> ONE DAY · ONE READING · NO REFUNDS</p>
+      <h1>THE DAILY <em>ORACLE</em></h1>
+      <p>A small sign for today. Take what helps. Leave the cosmic paperwork.</p>
+    </header>
+
+    <div class="oracle-workspace">
+      <div class="oracle-workspace-main">
+        <section class="oracle-console" aria-labelledby="oracle-console-title">
+          <div class="oracle-console-head">
+            <div>
+              <span class="oracle-overline">YOUR DAILY INTERRUPTION</span>
+              <h2 id="oracle-console-title">The universe has a minute.</h2>
+            </div>
+            <span class="oracle-ready"><span aria-hidden="true"></span> TODAY'S EDITION</span>
+          </div>
+
+          <div class="oracle-reveal-area" id="oracle-reveal-area" aria-live="polite">
+            <div class="oracle-before" id="oracle-before">
+              <div class="oracle-sigil" aria-hidden="true">
+                <svg viewBox="0 0 120 120" role="presentation">
+                  <circle cx="60" cy="60" r="43" />
+                  <circle cx="60" cy="60" r="31" />
+                  <path d="M60 17 L66 48 L96 60 L66 72 L60 103 L54 72 L24 60 L54 48 Z" />
+                  <circle cx="60" cy="60" r="8" />
+                </svg>
+              </div>
+              <p class="oracle-date" id="oracle-date"></p>
+              <p class="oracle-prompt">Somewhere between a coincidence and a questionable life choice, there is a message.</p>
+              <button class="oracle-primary" id="reveal-oracle" type="button">REVEAL TODAY'S ORACLE <span aria-hidden="true">↗</span></button>
+              <p class="oracle-microcopy">No account. No personal details. Just today's little omen.</p>
+            </div>
+
+            <article class="oracle-reading" id="oracle-reading" hidden>
+              <div class="oracle-reading-top">
+                <span class="oracle-reading-label">✦ TODAY'S READING</span>
+                <span class="oracle-date-pill" id="reading-date"></span>
+              </div>
+              <div class="oracle-reading-center">
+                <div class="oracle-symbol-mark" id="oracle-symbol-mark" aria-hidden="true">✧</div>
+                <p class="oracle-overline">YOUR SYMBOL</p>
+                <h3 id="oracle-symbol">The Lantern</h3>
+                <p class="oracle-energy" id="oracle-energy">ENERGY · QUIET THUNDER</p>
+              </div>
+              <blockquote class="oracle-omen" id="oracle-omen">The day may not explain itself. Proceed anyway.</blockquote>
+              <div class="oracle-mission">
+                <span class="oracle-mission-label">A TINY MISSION</span>
+                <p id="oracle-mission">Do one small thing before negotiating with your attention span.</p>
+              </div>
+              <p class="oracle-whisper" id="oracle-whisper">The Oracle has spoken. It would now like a snack.</p>
+              <div class="oracle-reading-actions" aria-label="Share your daily reading">
+                <button class="oracle-action-button oracle-action-primary" id="share-text" type="button" disabled>Share text</button>
+                <button class="oracle-action-button" id="share-picture" type="button" disabled>Share picture</button>
+                <button class="oracle-action-button" id="download-picture" type="button" disabled>Download image</button>
+              </div>
+              <p class="oracle-lock-note">This reading is yours for today. The universe will issue another tomorrow.</p>
+            </article>
+          </div>
+          <p class="oracle-feedback" id="oracle-feedback" role="status" aria-live="polite"></p>
+        </section>
+
+      </div>
+
+      <aside class="oracle-side-notes" aria-labelledby="oracle-side-title">
+        <p class="oracle-overline">A NOTE FROM THE UNIVERSE</p>
+        <h2 id="oracle-side-title">Not a prophecy. More like a nudge.</h2>
+        <p>The Daily Oracle is a small daily ritual built around symbols, curious prompts and a little humour. It is here to interrupt autopilot, not to make important decisions for you.</p>
+        <div class="oracle-side-rule"></div>
+        <p class="oracle-side-quote">“A sign is a sign. Whether you listen is between you and the raccoon living in your conscience.”</p>
+        <p class="oracle-side-small">Your reading is saved locally in this browser for the current date. Come back tomorrow for another one.</p>
+      </aside>
+    </div>
+
+    <section class="wf-share-section oracle-share-card" aria-labelledby="oracle-share-title">
+      <div class="wf-share-copy">
+        <p class="wf-share-overline">PASS THE OMEN ALONG</p>
+        <h2 id="oracle-share-title">Share with your friends.</h2>
+        <p>Send today's reading to the group chat. They can open their own and see what the universe has been mumbling about.</p>
+      </div>
+      <div class="wf-share-social-grid" aria-label="Share the Whimfate Daily Oracle reading">
+        <button class="wf-share-social-link" type="button" data-share="whatsapp" aria-label="Share on WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.3-4.9A8.4 8.4 0 1 1 20.5 11.8Z"/><path d="M9 8.2c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1-.6 1.3-.4.4-1.1.6-1.8.5-1.1-.2-2.5-.8-3.8-2.1-1.1-1-1.8-2.3-2-3.3-.2-.9.1-1.5.5-1.9Z"/></svg><span>WhatsApp</span>
+        </button>
+        <button class="wf-share-social-link" type="button" data-share="telegram" aria-label="Share on Telegram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-3.2 18-6.1-5.1-3.2 3.1.6-5.9L18 6.2 7.2 12.8 3 11.3 21 3Z"/></svg><span>Telegram</span>
+        </button>
+        <button class="wf-share-social-link" type="button" data-share="x" aria-label="Share on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h4.8l4.1 5.7L17.8 3H20l-6.1 7.1L21 21h-4.8l-4.6-6.4L6 21H3.8l6.5-7.8L4 3Zm4 1.8H7l9.2 14.4h1.1L8 4.8Z"/></svg><span>X</span>
+        </button>
+        <button class="wf-share-social-link" type="button" data-share="reddit" aria-label="Share on Reddit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2 2 0 0 1 2 2l-.2.9 3.1.7a2.2 2.2 0 1 1 .4 1.7l-3.8-.9-.8 3.1c2.9.1 5.2 1.4 5.2 3.1 0 2.1-2.6 3.8-5.9 3.8s-5.9-1.7-5.9-3.8c0-1.7 2.3-3 5.2-3.1l.9-3.5a.9.9 0 0 1 1.1-.7l3.9.9a2.2 2.2 0 0 1 .5-1.1l-3.9-.9a2 2 0 0 1-1.8 1.1 2 2 0 1 1 0-4Zm-2.8 9.9a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Zm5.6 0a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8ZM9.5 16a4.2 4.2 0 0 0 5 0"/></svg><span>Reddit</span>
+        </button>
+        <button class="wf-share-social-link" type="button" data-share="facebook" aria-label="Share on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V13h2.8v8h3.4Z"/></svg><span>Facebook</span>
+        </button>
+        <button class="wf-share-social-link" type="button" data-share="discord" aria-label="Prepare result for Discord">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.8 5.6A17 17 0 0 0 15.7 4l-.5 1a15 15 0 0 0-6.4 0l-.5-1a17 17 0 0 0-4.1 1.6C1.6 9.4.9 13.1 1.2 16.8a16 16 0 0 0 5 2.5l1.1-1.8-1.7-.8.4-.3a12 12 0 0 0 12 0l.4.3-1.7.8 1.1 1.8a16 16 0 0 0 5-2.5c.4-4.3-.8-7.9-3-11.2ZM8.7 14.6c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/></svg><span>Discord</span>
+        </button>
+        <button class="wf-share-social-link" type="button" data-share="copy-link" aria-label="Copy Daily Oracle link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 14.4a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7M14.4 9.6a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/></svg><span>Copy link</span>
+        </button>
+      </div>
+      <p class="wf-share-feedback" id="oracle-social-feedback" role="status" aria-live="polite">Share the reading and invite someone to reveal their own. Use Share picture above to send the actual image through your device's share menu where supported.</p>
+    </section>
+
+    <dialog class="oracle-picture-dialog" id="oracle-picture-dialog" aria-labelledby="oracle-picture-dialog-title">
+      <div class="oracle-picture-dialog-inner">
+        <div class="oracle-picture-dialog-top">
+          <p class="oracle-overline">THE ACTUAL ORACLE CARD</p>
+          <button class="oracle-dialog-close" id="oracle-dialog-close" type="button" aria-label="Close image sharing panel">×</button>
+        </div>
+        <h2 id="oracle-picture-dialog-title">Your picture is ready.</h2>
+        <p class="oracle-picture-dialog-copy" id="oracle-picture-dialog-copy">This browser cannot send a local image straight into another app. Download the PNG, then attach it in WhatsApp, Telegram, Discord or wherever the omen needs to go.</p>
+        <img class="oracle-picture-preview" id="oracle-picture-preview" alt="Preview of your Whimfate Daily Oracle share card">
+        <div class="oracle-picture-dialog-actions">
+          <button class="oracle-action-button oracle-action-primary" id="oracle-dialog-download" type="button">Download PNG</button>
+          <button class="oracle-action-button" id="oracle-dialog-copy-text" type="button">Copy reading text</button>
+        </div>
+        <p class="oracle-picture-dialog-note" id="oracle-picture-dialog-note" role="status" aria-live="polite">The image is ready to save and attach in your chosen app.</p>
+      </div>
+    </dialog>
+
+    <section class="oracle-editorial" aria-labelledby="oracle-about-title">
+      <div class="oracle-editorial-main">
+        <p class="oracle-overline">A DAILY MOMENT OF MAYBE</p>
+        <h2 id="oracle-about-title">What is the Whimfate Daily Oracle?</h2>
+        <p>The Whimfate Daily Oracle is a free daily oracle for anyone who enjoys a little mystery with their morning coffee. Open the page, reveal your reading and get a symbolic theme, a short message and one tiny mission to take into the day. Some readings feel thoughtful, some are delightfully odd, and some seem to have been written by a moon with a group-chat problem.</p>
+        <p>It is designed as a light daily ritual: a moment to pause, look at the day from a different angle and perhaps try something small. You do not need an account, a profile or a list of personal details. Your daily reading is available right here in your browser.</p>
+        <h2>One little reading, a different angle on the day</h2>
+        <p>Daily prompts can be a useful way to break routine. A symbol gives the day a theme, a short oracle message offers something to think about, and a tiny mission turns that thought into a simple action. You can treat the result as inspiration, a conversation starter or just a funny message to share with a friend. There is no correct interpretation and absolutely no cosmic homework to submit.</p>
+        <p>Use the Daily Oracle when you want a quick daily prompt, when a friend needs a gentle nudge, or when the group chat has become suspiciously quiet. Share your reading as text or as an image, then invite someone else to reveal theirs. Their reading is generated separately for their own visit.</p>
+      </div>
+      <aside class="oracle-editorial-aside">
+        <div class="oracle-fact"><span>01</span><div><strong>One daily moment</strong><p>A fresh reading for the date.</p></div></div>
+        <div class="oracle-fact"><span>02</span><div><strong>Made to share</strong><p>Send the message or its image.</p></div></div>
+        <div class="oracle-fact"><span>03</span><div><strong>Light-hearted by design</strong><p>A prompt, not a prediction.</p></div></div>
+      </aside>
+    </section>
+
+    <section class="oracle-faq" aria-labelledby="oracle-faq-title">
+      <p class="oracle-overline">GOOD QUESTIONS, QUESTIONABLE ANSWERS</p>
+      <h2 id="oracle-faq-title">Daily Oracle FAQ</h2>
+      <div class="oracle-faq-list">
+        <details><summary>What is the Daily Oracle?</summary><p>It is a free daily reading with a symbolic theme, a short message and a tiny mission. Think of it as a moment of reflection with a sense of humour, not a forecast of what must happen.</p></details>
+        <details><summary>Is the Daily Oracle different every day?</summary><p>Yes. Your reading is tied to the current date and your local browser experience. Return on another day to discover a new combination of symbol, energy, message and mission.</p></details>
+        <details><summary>Will everyone receive the same reading?</summary><p>Not necessarily. Different visitors can receive different daily combinations. Sharing your reading does not overwrite another person's reading; visitors can open the Oracle and reveal their own.</p></details>
+        <details><summary>Do I need to create an account?</summary><p>No account or sign-up is needed. You can open the page and reveal the daily reading directly in your browser.</p></details>
+        <details><summary>Can I send the Oracle card directly to WhatsApp or Discord?</summary><p>On browsers that support sharing image files, Share picture opens your device's share menu so you can choose a compatible app. If direct image sharing is unavailable, download the PNG and attach it manually in WhatsApp, Telegram, Discord or another app.</p></details>
+        <details><summary>Is the Oracle meant to predict the future?</summary><p>No. It is an entertainment and reflection experience. Treat the message as a playful prompt, not as professional, medical, financial or personal advice.</p></details>
+        <details><summary>Why does my reading stay the same if I refresh?</summary><p>The Oracle keeps the same reading for the same browser and date, so you can return to it or share it later. A new date brings a new daily reading.</p></details>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

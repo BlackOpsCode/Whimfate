@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Split a list of names into balanced random teams in seconds. Whimfate Team Splitter uses secure browser randomness, keeps names on your device, and makes the draw easy to share.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://wimfate.com/team-splitter/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Whimfate">
+  <meta property="og:title" content="Team Splitter — Let Chance Pick Sides">
+  <meta property="og:description" content="Paste names, choose the number of teams, and let chance take the blame.">
+  <meta property="og:url" content="https://wimfate.com/team-splitter/">
+  <meta name="twitter:card" content="summary">
+  <title>Team Splitter — Random Team Generator | Whimfate</title>
+  <script src="../site.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="page-team-splitter">
+  <div id="site-header"></div>
+  <main id="main-content" class="ts-main">
+    <section class="ts-intro shell" aria-labelledby="ts-title">
+      <p class="ts-kicker"><span class="ts-status-dot"></span> TEAM PLAY · PURE CHANCE</p>
+      <h1 id="ts-title">TEAM <em>SPLITTER</em></h1>
+      <p class="ts-lede">Paste the names. Pick the teams.<br><strong>Let chance take the blame.</strong></p>
+      <p class="ts-aside">NO CAPTAINS. NO “I CALLED DIBS”. NO DRAMA. (SOME DRAMA.)</p>
+    </section>
+
+    <section class="ts-workbench shell" aria-label="Team splitter controls">
+      <div class="ts-roster-panel">
+        <div class="ts-panel-head">
+          <div>
+            <span class="ts-overline">01 / THE ROSTER</span>
+            <h2>Who's playing?</h2>
+          </div>
+          <span class="ts-count-badge" id="participant-badge">0 names</span>
+        </div>
+
+        <label class="ts-label" for="names-input">Names</label>
+        <textarea id="names-input" spellcheck="false" autocomplete="off" autocapitalize="words" placeholder="Alex&#10;Sam&#10;Jordan&#10;Riley&#10;..." aria-describedby="names-help names-count"></textarea>
+        <div class="ts-input-meta">
+          <span id="names-help">One name per line. Paste a whole list.</span>
+          <span id="names-count" aria-live="polite">0 / 200</span>
+        </div>
+        <div class="ts-roster-actions">
+          <button class="ts-text-button" type="button" id="example-button">Try an example list</button>
+          <button class="ts-text-button ts-muted-button" type="button" id="clear-button">Clear list</button>
+        </div>
+
+        <div class="ts-team-setting">
+          <div class="ts-team-setting-copy">
+            <label class="ts-label" for="team-count">How many teams?</label>
+            <p>We'll keep the teams as even as humanly random.</p>
+          </div>
+          <div class="ts-stepper" aria-label="Number of teams">
+            <button type="button" id="team-minus" aria-label="Use one fewer team">−</button>
+            <input id="team-count" type="number" min="2" max="50" value="2" inputmode="numeric" aria-label="Number of teams">
+            <button type="button" id="team-plus" aria-label="Use one more team">+</button>
+          </div>
+        </div>
+        <p class="ts-validation" id="validation-message" role="status" aria-live="polite">Add at least two names to get started.</p>
+      </div>
+
+      <div class="ts-machine-panel" id="fate-machine">
+        <div class="ts-panel-head ts-machine-head">
+          <div>
+            <span class="ts-overline">02 / THE FATE MACHINE</span>
+            <h2>Very serious science.</h2>
+          </div>
+          <span class="ts-ready-state" id="machine-status">READY</span>
+        </div>
+
+        <div class="ts-meter" aria-hidden="true">
+          <div class="ts-meter-topline"><span>CHAOS</span><span>FAIR ENOUGH</span><span>CHAOS</span></div>
+          <div class="ts-meter-track">
+            <span class="ts-meter-segment ts-meter-segment-1"></span>
+            <span class="ts-meter-segment ts-meter-segment-2"></span>
+            <span class="ts-meter-segment ts-meter-segment-3"></span>
+            <span class="ts-meter-segment ts-meter-segment-4"></span>
+            <span class="ts-meter-segment ts-meter-segment-5"></span>
+            <span class="ts-meter-segment ts-meter-segment-6"></span>
+            <span class="ts-meter-segment ts-meter-segment-7"></span>
+            <span class="ts-meter-segment ts-meter-segment-8"></span>
+            <span class="ts-meter-segment ts-meter-segment-9"></span>
+            <span class="ts-meter-segment ts-meter-segment-10"></span>
+            <span class="ts-meter-needle" id="meter-needle"></span>
+          </div>
+          <div class="ts-meter-readout"><span>NO FAVORITES</span><span id="meter-readout">AWAITING THE ROSTER</span></div>
+        </div>
+
+        <div class="ts-machine-message" aria-live="polite">
+          <span class="ts-machine-symbol" id="machine-symbol" aria-hidden="true">↯</span>
+          <p id="machine-message">A list goes in. A suspiciously balanced set of teams comes out.</p>
+        </div>
+
+        <button class="ts-pull-button" type="button" id="draw-button" disabled>
+          <span class="ts-pull-icon" aria-hidden="true"><span></span></span>
+          <span class="ts-pull-copy"><strong>PULL THE LEVER</strong><small>MAKE THE TEAMS</small></span>
+          <span class="ts-pull-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="ts-local-note"><span aria-hidden="true">●</span> Names stay in this browser. No uploads, no account.</p>
+      </div>
+    </section>
+
+    <section class="ts-results shell" id="results-section" aria-labelledby="results-title" hidden>
+      <div class="ts-results-head">
+        <div>
+          <p class="ts-kicker"><span class="ts-status-dot"></span> THE DRAW IS DONE</p>
+          <h2 id="results-title">The teams are <em>decided.</em></h2>
+          <p class="ts-results-subtitle" id="results-summary">Nobody can accuse you of picking favorites. Technically.</p>
+        </div>
+        <span class="ts-result-stamp" id="result-stamp">DRAW #01</span>
+      </div>
+
+      <div class="ts-team-grid" id="team-results" aria-live="polite"></div>
+
+      <div class="ts-results-actions">
+        <button class="ts-action-button ts-action-primary" type="button" id="copy-button">Share text</button>
+        <button class="ts-action-button" type="button" id="share-button">Share picture</button>
+        <button class="ts-action-button" type="button" id="download-button">Download image</button>
+        <button class="ts-action-button ts-action-quiet" type="button" id="reshuffle-button">Shuffle again ↻</button>
+      </div>
+      <p class="ts-feedback" id="result-feedback" role="status" aria-live="polite"></p>
+      <p class="ts-footnote">Randomly shuffled. Reasonably balanced. Social consequences remain outside our jurisdiction.</p>
+    </section>
+
+    <section class="wf-share-section shell" aria-labelledby="ts-share-title">
+          <div class="wf-share-copy">
+            <p class="wf-share-overline">NO CAPTAINS. JUST EVIDENCE</p>
+            <h2 id="ts-share-title">Share with your friends.</h2>
+            <p>Send the teams to the group. Let the group chat decide who objects first.</p>
+          </div>
+          <div class="wf-share-social-grid" aria-label="Share Whimfate Team Splitter">
+            <button class="wf-share-social-link" type="button" data-share="whatsapp" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.3-4.9A8.4 8.4 0 1 1 20.5 11.8Z"/><path d="M9 8.2c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1-.6 1.3-.4.4-1.1.6-1.8.5-1.1-.2-2.5-.8-3.8-2.1-1.1-1-1.8-2.3-2-3.3-.2-.9.1-1.5.5-1.9Z"/></svg><span>WhatsApp</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="telegram" aria-label="Share on Telegram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-3.2 18-6.1-5.1-3.2 3.1.6-5.9L18 6.2 7.2 12.8 3 11.3 21 3Z"/></svg><span>Telegram</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="x" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h4.8l4.1 5.7L17.8 3H20l-6.1 7.1L21 21h-4.8l-4.6-6.4L6 21H3.8l6.5-7.8L4 3Zm4 1.8H7l9.2 14.4h1.1L8 4.8Z"/></svg><span>X</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="reddit" aria-label="Share on Reddit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2 2 0 0 1 2 2l-.2.9 3.1.7a2.2 2.2 0 1 1 .4 1.7l-3.8-.9-.8 3.1c2.9.1 5.2 1.4 5.2 3.1 0 2.1-2.6 3.8-5.9 3.8s-5.9-1.7-5.9-3.8c0-1.7 2.3-3 5.2-3.1l.9-3.5a.9.9 0 0 1 1.1-.7l3.9.9a2.2 2.2 0 0 1 .5-1.1l-3.9-.9a2 2 0 0 1-1.8 1.1 2 2 0 1 1 0-4Zm-2.8 9.9a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Zm5.6 0a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8ZM9.5 16a4.2 4.2 0 0 0 5 0"/></svg><span>Reddit</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="facebook" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V13h2.8v8h3.4Z"/></svg><span>Facebook</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="discord" aria-label="Prepare result for Discord">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.8 5.6A17 17 0 0 0 15.7 4l-.5 1a15 15 0 0 0-6.4 0l-.5-1a17 17 0 0 0-4.1 1.6C1.6 9.4.9 13.1 1.2 16.8a16 16 0 0 0 5 2.5l1.1-1.8-1.7-.8.4-.3a12 12 0 0 0 12 0l.4.3-1.7.8 1.1 1.8a16 16 0 0 0 5-2.5c.4-4.3-.8-7.9-3-11.2ZM8.7 14.6c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/></svg><span>Discord</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="copy-link" aria-label="Copy Whimfate link">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 14.4a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7M14.4 9.6a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/></svg><span>Copy link</span>
+            </button>
+          </div>
+          <p class="wf-share-feedback" id="ts-social-feedback" role="status" aria-live="polite">Choose a network to share the text and link. To include the actual result image, use Share picture where your device supports it, or download the image and attach it.</p>
+        </section>
+
+    <section class="ts-seo shell" aria-labelledby="how-title">
+      <div class="ts-seo-heading">
+        <p class="ts-overline">THE PRACTICAL BIT</p>
+        <h2 id="how-title">Fair teams.<br><em>Less committee.</em></h2>
+      </div>
+      <div class="ts-seo-copy">
+        <p>Whimfate's free random team generator splits a list of names into balanced groups in seconds. Paste players, classmates, colleagues or a game-night crew, choose how many teams you need, and let the shuffle do the awkward part.</p>
+        <p>The Team Splitter shuffles the list locally in your browser and deals people across the teams so group sizes differ by no more than one. If there are 11 people and 3 teams, two teams will have 4 people and one team will have 3. The draw doesn't upload or save your list to a server.</p>
+        <p>Use it for classroom activities, sports, board games, workshops, office icebreakers or any situation where someone is about to start picking friends first. Use Share text to send the team list, Share picture on devices that support direct image sharing, or Download image and attach the PNG to the group chat.</p>
+      </div>
+    </section>
+
+    <section class="ts-faq shell" aria-labelledby="faq-title">
+      <p class="ts-overline">QUICK ANSWERS</p>
+      <h2 id="faq-title">Before someone objects.</h2>
+      <div class="ts-faq-list">
+        <details>
+          <summary>How does the random team generator work?</summary>
+          <p>The tool uses the browser's cryptographic random-number generator when available to shuffle the names, then distributes them across the selected teams. The number of people in each team will differ by at most one.</p>
+        </details>
+        <details>
+          <summary>Can I use it for school, sports or work?</summary>
+          <p>Yes. The Team Splitter works for casual games, classroom groups, sports practice, workshops, office activities and other low-stakes situations where you want a quick, neutral starting point.</p>
+        </details>
+        <details>
+          <summary>Are my names uploaded anywhere?</summary>
+          <p>No. The split happens in your browser. This module has no account, database or server endpoint for the names you enter. Avoid entering sensitive personal information into public computers.</p>
+        </details>
+        <details>
+          <summary>Can teams be exactly the same size?</summary>
+          <p>Only when the number of people divides evenly by the number of teams. Otherwise, some teams will have one extra person. This tool keeps that difference to one person and randomizes the assignment.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

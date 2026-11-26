@@ -1,0 +1,65 @@
+{
+  "symbols": [
+    {"name":"The Lantern","mark":"✧"},{"name":"The Moth","mark":"☾"},{"name":"The Key","mark":"⌘"},{"name":"The Fox","mark":"◇"},
+    {"name":"The Bell","mark":"◉"},{"name":"The Mirror","mark":"✦"},{"name":"The Compass","mark":"✥"},{"name":"The Thread","mark":"∞"},
+    {"name":"The Candle","mark":"♧"},{"name":"The Door","mark":"▱"},{"name":"The Raven","mark":"⋇"},{"name":"The Hourglass","mark":"⌛"},
+    {"name":"The Feather","mark":"❧"},{"name":"The Moonlit Coin","mark":"◐"},{"name":"The Little Mountain","mark":"△"},{"name":"The Paper Crown","mark":"♕"},
+    {"name":"The Sleeping Star","mark":"✶"},{"name":"The Hidden Garden","mark":"❋"},{"name":"The Compass Rose","mark":"✣"},{"name":"The Wandering Cloud","mark":"☁"},
+    {"name":"The Silver Fish","mark":"≈"},{"name":"The Quiet Flame","mark":"♨"},{"name":"The Open Window","mark":"▧"},{"name":"The Lost Button","mark":"⊙"}
+  ],
+  "energies": [
+    "QUIET THUNDER","UNBOTHERED MOON","SOFT CHAOS","BORROWED COURAGE","GENTLE MISCHIEF","PATIENT LIGHT",
+    "CURIOUS STATIC","LOW-STAKES DESTINY","MILDLY HAUNTED OPTIMISM","BRAVE LITTLE DETOUR","SUSPICIOUS CALM","FRESHLY POLISHED MAYBE",
+    "UNEXPECTED CLARITY","RESTING WIZARD FACE","TINY REBELLION","COSMIC SHRUG"
+  ],
+  "omens": [
+    "The thing you keep postponing may be smaller than the story you built around it.",
+    "A quiet answer is still an answer. You do not need to add a dramatic soundtrack.",
+    "Today rewards the first step, not the perfect plan. The committee in your head can adjourn.",
+    "Something ordinary deserves your full attention. Yes, even the coffee.",
+    "You are allowed to change direction without issuing a press release.",
+    "A little curiosity will take you further than another hour of overthinking.",
+    "Not every open door is an invitation. Some are just badly fitted doors.",
+    "The useful thing may arrive wearing the very unconvincing costume of inconvenience.",
+    "You do not have to solve the whole week before lunch.",
+    "A small honest answer beats an elaborate maybe wearing a hat.",
+    "There is room for a new idea once you stop interviewing the old one.",
+    "Today is a decent day to begin before you feel entirely ready.",
+    "Let one thing be easy. The universe has enough paperwork already.",
+    "Your attention is precious. Spend it like it knows the exchange rate.",
+    "An unexpected detour can still be part of the route. Annoying, but true.",
+    "You may be closer than you think. Try looking without refreshing the page.",
+    "A pause is not a failure to move. Sometimes it is the move.",
+    "You can be kind and still say no. Astonishing technology, really.",
+    "The answer might be hiding inside the question you keep avoiding.",
+    "Do the simple version first. The deluxe edition can wait.",
+    "A little less comparison could make room for a little more living.",
+    "Today has potential. Please do not scare it away with seventeen plans.",
+    "Something worth keeping may begin as a very ordinary conversation.",
+    "You are not behind. Time is not a competitive group project."
+  ],
+  "missions": [
+    "Send one message you have been meaning to send. Keep it human; punctuation is optional.",
+    "Take a five-minute walk without turning it into a productivity challenge.",
+    "Finish one small task before opening another tab.",
+    "Ask someone a question and listen to the entire answer.",
+    "Put one thing back where it belongs. Start a tiny domestic revolution.",
+    "Drink a glass of water before negotiating with your to-do list.",
+    "Write down one thing that went better than expected.",
+    "Choose the simple option once today. Observe the lack of catastrophe.",
+    "Take a short break without earning it first.",
+    "Give someone a sincere compliment with no hidden agenda.",
+    "Spend ten minutes on something you enjoy and do not monetize the joy.",
+    "Let one non-urgent notification remain unanswered for a little while."
+  ],
+  "whispers": [
+    "The Oracle has spoken. It would now like a snack.",
+    "Interpret responsibly. Dramatic readings are not legally binding.",
+    "The stars are unavailable for follow-up questions.",
+    "A sign is a sign. Please do not make it your entire personality.",
+    "The universe has left the group chat on read.",
+    "Carry this lightly. You have enough tabs open already.",
+    "Cosmic customer support is closed until further notice.",
+    "The omen is complete. Go be a person about it."
+  ]
+}

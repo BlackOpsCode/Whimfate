@@ -1,0 +1,471 @@
+/* Whimfate Daily Oracle — module-local styles. Shared shell, typography and injected navigation come from ../site.css. */
+.page-daily-oracle .site-atmosphere { display:none !important; }
+.oracle-main { padding-bottom:84px; }
+.oracle-intro { padding:38px 0 29px; text-align:center; }
+.oracle-kicker { display:flex; justify-content:center; align-items:center; gap:9px; margin:0; color:var(--purple); font-size:12px; font-weight:800; letter-spacing:.13em; }
+.oracle-intro h1 { margin:15px 0 8px; font-family:var(--display); font-size:clamp(54px,7vw,88px); font-weight:400; line-height:.98; }
+.oracle-intro h1 em { color:var(--purple); font-style:normal; }
+.oracle-intro>p:last-child { margin:10px 0 0; color:#d5cedc; font-size:18px; }
+.oracle-workspace { display:grid; grid-template-columns:minmax(0,1fr) minmax(245px,290px); align-items:start; gap:clamp(22px,3vw,42px); }
+.oracle-workspace-main { min-width:0; }
+.oracle-console { min-width:0; padding:clamp(20px,3vw,34px); background:#050506; border:1px solid #29252f; }
+.oracle-console-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.oracle-overline { margin:0; color:#a99fb4; font-size:11px; font-weight:800; letter-spacing:.12em; }
+.oracle-console-head h2 { margin:8px 0 0; font-family:var(--display); font-size:clamp(27px,3vw,38px); font-weight:400; line-height:1.08; }
+.oracle-ready { display:inline-flex; align-items:center; gap:7px; padding:6px 9px; border:1px solid #29483b; color:#9ce7c7; font-size:10px; font-weight:800; letter-spacing:.09em; white-space:nowrap; }
+.oracle-ready span { width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 10px rgba(104,224,175,.55); }
+.oracle-reveal-area { min-height:420px; display:grid; place-items:center; padding:22px 0 8px; }
+.oracle-before { width:100%; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.oracle-sigil { width:112px; height:112px; display:grid; place-items:center; margin:5px 0 14px; border:1px solid #38264b; border-radius:50%; background:radial-gradient(circle at 50% 45%,rgba(159,103,220,.19),rgba(7,6,9,.15) 70%); box-shadow:0 0 55px rgba(130,77,190,.12),inset 0 0 24px rgba(150,104,210,.08); }
+.oracle-sigil svg { width:76px; height:76px; overflow:visible; fill:none; stroke:#c8a8ff; stroke-width:1.35; stroke-linecap:round; stroke-linejoin:round; }
+.oracle-date { margin:0; color:#9f95aa; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.oracle-prompt { max-width:440px; margin:13px auto 22px; color:#e7e0ed; font-family:var(--display); font-size:clamp(23px,3vw,30px); line-height:1.2; }
+.oracle-primary { display:flex; align-items:center; justify-content:center; gap:13px; width:min(390px,100%); min-height:58px; padding:12px 20px; border:1px solid var(--purple); border-radius:0; background:var(--purple); color:#09060e; font-size:14px; font-weight:900; letter-spacing:.05em; cursor:pointer; transition:background .18s,border-color .18s,transform .18s; }
+.oracle-primary:hover:not(:disabled) { background:#e2d0ff; border-color:#e2d0ff; transform:translateY(-1px); }
+.oracle-primary:disabled { opacity:.65; cursor:wait; }
+.oracle-primary span { font-size:20px; }
+.oracle-microcopy { margin:12px 0 0; color:#8d8495; font-size:12px; }
+.oracle-reading { width:100%; }
+.oracle-reading.is-revealing { animation:oracle-reveal .7s cubic-bezier(.2,.72,.25,1) both; }
+.oracle-reading[hidden] { display:none; }
+@keyframes oracle-reveal { from { opacity:0; transform:translateY(13px) scale(.99); filter:blur(4px); } to { opacity:1; transform:none; filter:blur(0); } }
+.oracle-reading-top { display:flex; align-items:center; justify-content:space-between; gap:10px; padding-bottom:17px; border-bottom:1px solid #2a2431; }
+.oracle-reading-label { color:var(--green); font-size:11px; font-weight:900; letter-spacing:.13em; }
+.oracle-date-pill { color:#bdb2ca; font-size:12px; }
+.oracle-symbol-row { display:flex; align-items:center; gap:17px; padding:24px 0 13px; }
+.oracle-symbol-mark { flex:0 0 68px; width:68px; height:68px; display:grid; place-items:center; border:1px solid #61458a; border-radius:50%; background:radial-gradient(circle at 35% 28%,#31203f,#100b17 72%); color:#d8c0ff; font-family:var(--display); font-size:36px; box-shadow:inset 0 0 24px rgba(185,142,255,.09),0 0 28px rgba(145,91,205,.12); }
+.oracle-symbol-row h3 { margin:5px 0 0; color:#fff; font-family:var(--display); font-size:clamp(27px,3vw,36px); font-weight:400; line-height:1.06; }
+.oracle-energy { display:inline-flex; margin:5px 0 16px; padding:7px 10px; border:1px solid #315443; color:#9de8c5; font-size:10px; font-weight:900; letter-spacing:.1em; }
+.oracle-omen { margin:0; padding:2px 0 5px; color:#f4eff8; font-family:var(--display); font-size:clamp(28px,3.8vw,43px); font-weight:400; line-height:1.18; letter-spacing:-.01em; }
+.oracle-mission { margin-top:23px; padding:17px 18px; border-left:2px solid var(--green); background:#0b100e; }
+.oracle-mission-label { color:#8de0b9; font-size:10px; font-weight:900; letter-spacing:.13em; }
+.oracle-mission p { margin:7px 0 0; color:#e6eee9; font-size:16px; line-height:1.6; }
+.oracle-whisper { margin:18px 0 0; color:#bfa5e2; font-size:14px; font-style:italic; line-height:1.6; }
+.oracle-reading-actions { display:flex; align-items:center; flex-wrap:wrap; gap:13px; margin-top:22px; }
+.oracle-again { width:auto; min-width:205px; min-height:46px; font-size:11px; }
+.oracle-lock-note { color:#958b9d; font-size:12px; }
+.oracle-feedback { min-height:20px; margin:0; color:var(--green); font-size:13px; }
+.oracle-side-notes { padding:9px 0 0; }
+.oracle-side-notes h2 { margin:11px 0 13px; color:#fff; font-family:var(--display); font-size:clamp(27px,3vw,35px); font-weight:400; line-height:1.1; }
+.oracle-side-notes>p:not(.oracle-overline) { color:#c8c0d0; font-size:15px; line-height:1.8; }
+.oracle-side-rule { width:46px; height:2px; margin:22px 0; background:linear-gradient(90deg,var(--green),var(--purple)); }
+.oracle-side-notes .oracle-side-quote { color:#d8c5f0; font-family:var(--display); font-size:21px; line-height:1.35; }
+.oracle-side-notes .oracle-side-small { color:#92899a; font-size:13px; }
+.oracle-share { display:grid; grid-template-columns:minmax(0,1fr) minmax(260px,.92fr); align-items:center; gap:22px; margin-top:24px; padding:23px 24px; border:1px solid #29252f; background:#050506; }
+.oracle-share-copy h2 { margin:6px 0 5px; color:#fff; font-family:var(--display); font-size:clamp(25px,3vw,33px); font-weight:400; }
+.oracle-share-copy>p:last-child { max-width:440px; margin:0; color:#bcb3c5; font-size:14px; line-height:1.55; }
+.oracle-share-actions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }
+.oracle-share-button { min-width:0; min-height:78px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px; padding:10px 6px; border:1px solid #39313f; background:#0a090c; color:#eee8f4; font:700 12px Manrope,sans-serif; cursor:pointer; transition:border-color .18s,color .18s,background .18s; }
+.oracle-share-button:hover:not(:disabled) { border-color:var(--purple); color:#d8c1ff; background:#100b17; }
+.oracle-share-button:disabled { opacity:.38; cursor:not-allowed; }
+.share-icon { color:var(--green); font-size:21px; line-height:1; }
+.oracle-share-foot { grid-column:1/-1; margin:0; color:#82798b; font-size:11px; }
+.oracle-editorial { display:grid; grid-template-columns:minmax(0,1fr) 250px; gap:clamp(28px,5vw,70px); margin-top:77px; }
+.oracle-editorial-main { min-width:0; }
+.oracle-editorial-main h2 { max-width:760px; margin:10px 0 14px; color:#fff; font-family:var(--display); font-size:clamp(31px,4vw,43px); font-weight:400; line-height:1.12; }
+.oracle-editorial-main h2:not(:first-of-type) { margin-top:35px; }
+.oracle-editorial-main p { max-width:820px; margin:0 0 15px; color:#c9c1d0; font-size:16px; line-height:1.85; }
+.oracle-editorial-aside { display:flex; flex-direction:column; gap:24px; padding-top:17px; }
+.oracle-fact { display:grid; grid-template-columns:32px 1fr; gap:11px; }
+.oracle-fact>span { color:var(--purple); font-size:12px; font-weight:900; }
+.oracle-fact strong { display:block; color:#f2edf6; font-size:14px; }
+.oracle-fact p { margin:5px 0 0; color:#a69cad; font-size:13px; line-height:1.55; }
+.oracle-faq { margin-top:76px; }
+.oracle-faq>h2 { margin:9px 0 22px; color:#fff; font-family:var(--display); font-size:clamp(34px,4vw,44px); font-weight:400; }
+.oracle-faq-list { width:100%; }
+.oracle-faq details { width:100%; padding:18px 0 17px; border-bottom:1px solid #29252f; }
+.oracle-faq details:first-child { border-top:1px solid #29252f; }
+.oracle-faq summary { color:#f3eef7; font-size:17px; font-weight:800; line-height:1.45; cursor:pointer; list-style:none; }
+.oracle-faq summary::-webkit-details-marker { display:none; }
+.oracle-faq summary::after { content:'+'; float:right; margin-left:18px; color:var(--green); font-size:23px; font-weight:500; line-height:1; }
+.oracle-faq details[open] summary::after { content:'−'; }
+.oracle-faq details p { max-width:900px; margin:11px 35px 0 0; color:#c6bdce; font-size:15px; line-height:1.75; }
+@media (min-width:1200px) { .oracle-workspace { grid-template-columns:minmax(0,1fr) 285px; } }
+@media (max-width:850px) { .oracle-workspace { grid-template-columns:minmax(0,1fr); gap:28px; } .oracle-side-notes { display:grid; grid-template-columns:1fr 1fr; column-gap:24px; padding:0; } .oracle-side-notes>.oracle-overline,.oracle-side-notes>h2 { grid-column:1/-1; } .oracle-side-rule { display:none; } .oracle-side-notes .oracle-side-quote { margin-top:0; } .oracle-editorial { grid-template-columns:minmax(0,1fr) 210px; } }
+@media (max-width:650px) {
+  .oracle-main { padding-bottom:58px; }
+  .oracle-intro { padding:25px 0 21px; }
+  .oracle-kicker { font-size:10px; letter-spacing:.1em; }
+  .oracle-intro h1 { margin:12px 0 6px; font-size:clamp(43px,11vw,62px); }
+  .oracle-intro>p:last-child { max-width:330px; margin:8px auto 0; font-size:15px; line-height:1.5; }
+  .oracle-console { padding:17px; }
+  .oracle-console-head { gap:8px; }
+  .oracle-overline { font-size:9px; }
+  .oracle-console-head h2 { font-size:25px; }
+  .oracle-ready { padding:5px 6px; font-size:8px; }
+  .oracle-reveal-area { min-height:360px; padding:13px 0 5px; }
+  .oracle-sigil { width:88px; height:88px; margin-bottom:11px; }
+  .oracle-sigil svg { width:62px; height:62px; }
+  .oracle-prompt { max-width:330px; margin:10px auto 18px; font-size:23px; }
+  .oracle-primary { min-height:52px; font-size:12px; }
+  .oracle-symbol-row { gap:12px; padding:18px 0 10px; }
+  .oracle-symbol-mark { flex-basis:56px; width:56px; height:56px; font-size:29px; }
+  .oracle-symbol-row h3 { font-size:27px; }
+  .oracle-omen { font-size:clamp(27px,7vw,35px); }
+  .oracle-mission { margin-top:17px; padding:13px; }
+  .oracle-mission p { font-size:14px; }
+  .oracle-reading-actions { gap:9px; margin-top:17px; }
+  .oracle-again { min-width:175px; min-height:43px; }
+  .oracle-lock-note { font-size:10px; }
+  .oracle-share { grid-template-columns:1fr; gap:15px; margin-top:15px; padding:17px; }
+  .oracle-share-copy h2 { font-size:27px; }
+  .oracle-share-copy>p:last-child { font-size:13px; }
+  .oracle-share-actions { gap:6px; }
+  .oracle-share-button { min-height:68px; font-size:10px; }
+  .oracle-share-foot { grid-column:auto; font-size:10px; line-height:1.5; }
+  .oracle-side-notes { display:block; }
+  .oracle-side-notes h2 { font-size:28px; }
+  .oracle-side-notes>p:not(.oracle-overline) { margin:9px 0; font-size:14px; line-height:1.7; }
+  .oracle-side-rule { display:block; margin:15px 0; }
+  .oracle-side-notes .oracle-side-quote { font-size:20px; }
+  .oracle-editorial { grid-template-columns:1fr; gap:22px; margin-top:48px; }
+  .oracle-editorial-main h2 { font-size:31px; }
+  .oracle-editorial-main p { font-size:15px; line-height:1.75; }
+  .oracle-editorial-aside { display:grid; grid-template-columns:1fr; gap:14px; padding:0; }
+  .oracle-faq { margin-top:49px; }
+  .oracle-faq>h2 { font-size:34px; }
+  .oracle-faq details { padding:15px 0; }
+  .oracle-faq summary { font-size:15px; }
+  .oracle-faq details p { margin-right:20px; font-size:14px; }
+}
+@media (prefers-reduced-motion:reduce) { .oracle-primary { transition:none; } .oracle-reading.is-revealing { animation:none; } }
+
+/* Daily Oracle v2 — centered reading card and shared Whimfate social panel. */
+.oracle-reading {
+  position: relative;
+  width: min(100%, 900px);
+  margin-inline: auto;
+  padding: clamp(22px, 3.2vw, 38px);
+  overflow: hidden;
+  border: 1px solid #3a2b4a;
+  background:
+    radial-gradient(ellipse at 50% 12%, rgba(143, 91, 196, .16), transparent 46%),
+    radial-gradient(ellipse at 94% 88%, rgba(74, 174, 132, .075), transparent 35%),
+    #08070b;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .28), inset 0 1px rgba(255,255,255,.025);
+}
+.oracle-reading[hidden] { display: none !important; }
+.oracle-reading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  width: 64%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,168,255,.62), rgba(139,233,199,.48), transparent);
+  pointer-events: none;
+}
+.oracle-reading-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #29232f;
+}
+.oracle-reading-label { color: var(--green); font-size: 11px; font-weight: 900; letter-spacing: .13em; }
+.oracle-date-pill { color: #bcb2c8; font-size: 12px; text-align: right; }
+.oracle-reading-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 0 18px;
+  text-align: center;
+}
+.oracle-symbol-mark {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  margin: 0 0 17px;
+  border: 1px solid #76569a;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #342143, #110b18 72%);
+  color: #e0caff;
+  font-family: var(--display);
+  font-size: 51px;
+  line-height: 1;
+  box-shadow: inset 0 0 28px rgba(185,142,255,.12), 0 0 38px rgba(145,91,205,.16);
+}
+.oracle-reading-center > .oracle-overline { color: #ad9bbd; font-size: 10px; }
+.oracle-reading-center h3 {
+  margin: 7px 0 13px;
+  color: #fff;
+  font-family: var(--display);
+  font-size: clamp(36px, 4.5vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.oracle-energy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 8px 13px;
+  border: 1px solid #315443;
+  background: rgba(11, 24, 18, .45);
+  color: #a4ebca;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .11em;
+  line-height: 1.35;
+  text-align: center;
+}
+.oracle-omen {
+  max-width: 760px;
+  margin: 3px auto 0;
+  padding: 24px clamp(16px, 3vw, 32px);
+  border: 1px solid #30253b;
+  background: rgba(18, 13, 24, .72);
+  color: #f5effa;
+  font-family: var(--display);
+  font-size: clamp(29px, 3.6vw, 42px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+  text-align: center;
+  text-wrap: balance;
+}
+.oracle-mission {
+  width: min(100%, 760px);
+  margin: 20px auto 0;
+  padding: 18px 20px;
+  border: 1px solid #254333;
+  border-left: 3px solid var(--green);
+  background: linear-gradient(100deg, rgba(12, 27, 20, .92), rgba(8, 13, 11, .96));
+}
+.oracle-mission-label { color: #9ce7c4; font-size: 10px; font-weight: 900; letter-spacing: .14em; }
+.oracle-mission p { margin: 8px 0 0; color: #edf5ef; font-size: 16px; line-height: 1.65; }
+.oracle-whisper {
+  max-width: 720px;
+  margin: 19px auto 0;
+  color: #c4a8e4;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.65;
+  text-align: center;
+}
+.oracle-reading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  margin: 25px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #2a2431;
+}
+.oracle-action-button {
+  min-width: 150px;
+  min-height: 47px;
+  padding: 0 17px;
+  border: 1px solid #3b3544;
+  border-radius: 2px;
+  background: #060507;
+  color: #f3edf9;
+  font: 800 14px/1.2 Manrope, sans-serif;
+  cursor: pointer;
+  transition: background .16s ease, border-color .16s ease, color .16s ease;
+}
+.oracle-action-button:hover:not(:disabled) { border-color: var(--purple); background: #110d17; color: #e3d2ff; }
+.oracle-action-button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.oracle-action-button:disabled { opacity: .38; cursor: not-allowed; }
+.oracle-action-primary { border-color: var(--purple); background: var(--purple); color: #09060e; }
+.oracle-action-primary:hover:not(:disabled) { border-color: #e3d2ff; background: #e3d2ff; color: #09060e; }
+.oracle-lock-note { display: block; margin: 12px 0 0; color: #91879c; font-size: 12px; line-height: 1.5; text-align: center; }
+.oracle-feedback { margin-top: 7px; text-align: center; }
+
+/* Premium share card uses the same social grid and icon treatment as Team Splitter. */
+.oracle-share-card {
+  margin: 44px 0 0;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid #332a40;
+  border-radius: 2px;
+  background:
+    radial-gradient(ellipse at 92% 10%, rgba(134, 83, 184, .15), transparent 38%),
+    radial-gradient(ellipse at 10% 100%, rgba(67, 171, 126, .085), transparent 34%),
+    #050506;
+  box-shadow: inset 0 1px rgba(255,255,255,.025);
+}
+.oracle-share-card .wf-share-copy h2 { font-size: clamp(31px, 3.4vw, 43px); }
+.oracle-share-card .wf-share-copy > p:last-child { max-width: 470px; }
+.oracle-share-card .wf-share-social-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.oracle-share-card .wf-share-social-link { min-height: 49px; }
+.oracle-share-card .wf-share-feedback { color: #a8e5c7; }
+.oracle-share-card .wf-share-copy { align-self: center; }
+.oracle-share-card .wf-share-social-grid { align-self: center; }
+.oracle-share-card .wf-share-feedback { margin-top: 2px; }
+
+@media (max-width: 850px) {
+  .oracle-share-card { grid-template-columns: minmax(0,1fr); gap: 17px; }
+  .oracle-share-card .wf-share-copy h2 { max-width: 100%; }
+  .oracle-share-card .wf-share-social-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media (max-width: 720px) {
+  .oracle-share-card .wf-share-social-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 650px) {
+  .oracle-reading { padding: 18px 15px 17px; }
+  .oracle-reading-top { align-items: flex-start; }
+  .oracle-reading-label { font-size: 9px; }
+  .oracle-date-pill { max-width: 48%; font-size: 10px; line-height: 1.4; }
+  .oracle-reading-center { padding: 20px 0 15px; }
+  .oracle-symbol-mark { width: 78px; height: 78px; margin-bottom: 13px; font-size: 42px; }
+  .oracle-reading-center h3 { margin: 6px 0 11px; font-size: clamp(32px, 9vw, 42px); }
+  .oracle-energy { max-width: 100%; padding: 7px 9px; font-size: 9px; letter-spacing: .08em; }
+  .oracle-omen { padding: 18px 13px; font-size: clamp(27px, 7.6vw, 34px); line-height: 1.18; }
+  .oracle-mission { margin-top: 14px; padding: 13px 14px; }
+  .oracle-mission p { font-size: 14px; line-height: 1.55; }
+  .oracle-whisper { margin-top: 14px; font-size: 12px; }
+  .oracle-reading-actions { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; margin-top: 19px; padding-top: 15px; }
+  .oracle-action-button { min-width: 0; min-height: 44px; padding: 7px 8px; font-size: 12px; }
+  .oracle-action-button:last-child { grid-column: 1 / -1; }
+  .oracle-lock-note { font-size: 10px; }
+  .oracle-share-card { gap: 14px; margin-top: 31px; padding: 19px 16px; }
+  .oracle-share-card .wf-share-copy h2 { margin: 7px 0 7px; font-size: clamp(28px, 8vw, 36px); }
+  .oracle-share-card .wf-share-copy > p:last-child { font-size: 14px; line-height: 1.55; }
+  .oracle-share-card .wf-share-social-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+  .oracle-share-card .wf-share-social-link { min-height: 46px; padding: 0 9px; font-size: 12px; }
+  .oracle-share-card .wf-share-social-link svg { width: 18px; height: 18px; }
+  .oracle-share-card .wf-share-feedback { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oracle-reading.is-revealing { animation: none !important; }
+  .oracle-action-button { transition: none !important; }
+}
+
+/* Daily Oracle v3 polish: match the shared game-page sidebar, shell and FAQ behavior. */
+.oracle-side-notes {
+  position: sticky;
+  top: 24px;
+  align-self: start;
+  min-width: 0;
+}
+.oracle-share-card,
+.oracle-editorial,
+.oracle-faq {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+.oracle-faq-list,
+.oracle-faq details {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+}
+.oracle-faq details p {
+  max-width: 900px;
+  overflow-wrap: anywhere;
+}
+
+/* The image-sharing fallback is its own action surface, never the site-invite panel. */
+.oracle-picture-dialog {
+  width: min(660px, calc(100vw - 32px));
+  max-width: 660px;
+  max-height: min(92dvh, 900px);
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: 1px solid #443452;
+  border-radius: 2px;
+  background:
+    radial-gradient(ellipse at 92% 8%, rgba(134, 83, 184, .15), transparent 38%),
+    radial-gradient(ellipse at 8% 100%, rgba(67, 171, 126, .08), transparent 34%),
+    #050506;
+  color: #f4eff9;
+  box-shadow: 0 24px 90px rgba(0,0,0,.7);
+}
+.oracle-picture-dialog::backdrop {
+  background: rgba(0,0,0,.82);
+  backdrop-filter: blur(7px);
+}
+.oracle-picture-dialog[open] { display: block; }
+.oracle-picture-dialog-inner { padding: clamp(18px, 3.2vw, 30px); }
+.oracle-picture-dialog-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.oracle-dialog-close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #39313f;
+  background: #0a090c;
+  color: #eee8f4;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+.oracle-dialog-close:hover { border-color: var(--purple); color: var(--purple); }
+.oracle-picture-dialog h2 {
+  margin: 8px 0 8px;
+  color: #fff;
+  font-family: var(--display);
+  font-size: clamp(30px, 5vw, 42px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+.oracle-picture-dialog-copy {
+  margin: 0 0 17px;
+  color: #c9c1d0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.oracle-picture-preview {
+  display: block;
+  width: min(100%, 340px);
+  max-height: 48dvh;
+  margin: 0 auto;
+  object-fit: contain;
+  border: 1px solid #302638;
+  background: #050506;
+  box-shadow: 0 14px 38px rgba(0,0,0,.42);
+}
+.oracle-picture-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.oracle-picture-dialog-actions .oracle-action-button { min-width: 175px; }
+.oracle-picture-dialog-note {
+  margin: 13px 0 0;
+  color: #a7dfc2;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: center;
+}
+.oracle-picture-dialog button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+@media (max-width: 850px) {
+  .oracle-side-notes { position: static; top: auto; }
+  .oracle-editorial { grid-template-columns: minmax(0,1fr); gap: 22px; }
+  .oracle-editorial-aside { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; padding-top: 0; }
+}
+@media (max-width: 650px) {
+  .oracle-main { width: calc(100% - 28px); }
+  .oracle-side-notes { position: static; }
+  .oracle-editorial-aside { grid-template-columns: minmax(0,1fr); }
+  .oracle-faq { margin-top: 48px; padding-bottom: 5px; }
+  .oracle-faq-list { width: 100%; }
+  .oracle-faq details { padding: 15px 0; }
+  .oracle-faq summary { padding-right: 8px; font-size: 15px; line-height: 1.5; }
+  .oracle-faq details p { margin-right: 18px; font-size: 14px; line-height: 1.7; }
+  .oracle-picture-dialog { width: calc(100vw - 22px); max-height: 94dvh; }
+  .oracle-picture-dialog-inner { padding: 17px 15px; }
+  .oracle-picture-dialog-copy { font-size: 14px; }
+  .oracle-picture-preview { width: min(100%, 260px); max-height: 40dvh; }
+  .oracle-picture-dialog-actions { display: grid; grid-template-columns: 1fr; }
+  .oracle-picture-dialog-actions .oracle-action-button { width: 100%; min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oracle-picture-dialog { scroll-behavior: auto; }
+}

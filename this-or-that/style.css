@@ -1,0 +1,216 @@
+/* Whimfate This or That — two-option decider. Common shell/header/footer live in ../site.css. */
+.page-game-module .site-atmosphere { display:none !important; }
+.tat-page { padding-bottom:84px; }
+.tat-intro { padding:38px 0 29px; text-align:center; }
+.tat-kicker { display:flex; align-items:center; justify-content:center; gap:9px; margin:0; color:var(--purple,#c8a8ff); font-size:12px; font-weight:800; letter-spacing:.12em; }
+.tat-intro h1 { margin:15px 0 8px; color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:clamp(58px,7vw,88px); font-weight:400; line-height:.96; letter-spacing:-.02em; }
+.tat-intro h1 em { color:var(--purple,#c8a8ff); font-style:normal; }
+.tat-intro>p:last-child { margin:10px 0 0; color:#d5cedd; font-size:18px; line-height:1.55; }
+.tat-workspace { display:grid; grid-template-columns:minmax(0,1fr) minmax(245px,290px); align-items:start; gap:clamp(28px,4vw,54px); }
+.tat-main-column { min-width:0; }
+.tat-console { min-width:0; padding:clamp(21px,3vw,34px); border:1px solid #2b2631; background:#050506; }
+.tat-console-head { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; }
+.tat-overline { color:#a99fb4; font-size:11px; font-weight:800; letter-spacing:.11em; }
+.tat-console-head h2 { margin:8px 0 0; color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:clamp(30px,3.8vw,42px); font-weight:400; line-height:1.06; }
+.tat-status { display:flex; align-items:center; gap:7px; flex:none; padding:6px 9px; border:1px solid #2a453a; color:var(--green,#8be9c7); font-size:10px; font-weight:900; letter-spacing:.1em; }
+.tat-context-label,.tat-option-input { display:flex; min-width:0; flex-direction:column; gap:8px; }
+.tat-context-label { margin-top:26px; }
+.tat-control-label { display:flex; align-items:center; gap:8px; color:#c6bdcf; font-size:11px; font-weight:900; letter-spacing:.1em; }
+.tat-control-label small { color:#82798c; font-size:9px; letter-spacing:.08em; }
+.tat-context-label input,.tat-option-input input { width:100%; min-width:0; min-height:53px; padding:0 15px; border:1px solid #38313f; border-radius:0; outline:0; background:#09080c; color:#fff; font:600 16px/1.35 Manrope,Arial,sans-serif; transition:border-color .18s,background .18s; }
+.tat-context-label input::placeholder,.tat-option-input input::placeholder { color:#716a79; opacity:1; }
+.tat-context-label input:focus,.tat-option-input input:focus { border-color:var(--purple,#c8a8ff); background:#0d0a12; }
+.tat-options-grid { display:grid; grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr); align-items:end; gap:10px; margin-top:20px; }
+.tat-option-input { gap:9px; padding:15px; border:1px solid #3b2b4d; background:linear-gradient(145deg,rgba(200,168,255,.075),rgba(8,7,10,.5) 65%); }
+.tat-option-input-b { border-color:#28463b; background:linear-gradient(145deg,rgba(139,233,199,.07),rgba(8,7,10,.5) 65%); }
+.tat-input-heading { display:flex; align-items:center; gap:9px; color:#c8a8ff; font-size:10px; font-weight:900; letter-spacing:.12em; }
+.tat-option-input-b .tat-input-heading { color:#8be9c7; }
+.tat-input-heading b { display:grid; width:27px; height:27px; place-items:center; border:1px solid currentColor; font-size:13px; }
+.tat-option-input input { min-height:58px; border-color:#40334e; background:#08070b; font-size:17px; }
+.tat-option-input-b input { border-color:#30483e; }
+.tat-input-or { display:grid; width:36px; height:36px; place-items:center; margin:0 auto 10px; border:1px solid #39323f; border-radius:50%; color:#bfb5c9; font-size:9px; font-weight:900; letter-spacing:.08em; }
+.tat-validation { min-height:21px; margin:10px 0 0; color:#f1a4b3; font-size:12px; line-height:1.5; }
+.tat-decide-button { display:flex; width:100%; min-height:60px; align-items:center; justify-content:center; gap:13px; margin-top:3px; padding:12px 18px; border:1px solid var(--purple,#c8a8ff); border-radius:0; background:var(--purple,#c8a8ff); color:#09070d; font:900 15px/1.3 Manrope,Arial,sans-serif; letter-spacing:.06em; cursor:pointer; transition:background .18s,border-color .18s,transform .18s,opacity .18s; }
+.tat-decide-button b { font-size:22px; line-height:1; }
+.tat-decide-button:hover:not(:disabled) { transform:translateY(-1px); border-color:#e8dcff; background:#e8dcff; }
+.tat-decide-button:disabled { cursor:not-allowed; opacity:.42; }
+.tat-decide-button.is-thinking { background:#17121f; color:var(--green,#8be9c7); border-color:#315744; }
+.tat-result { position:relative; margin-top:23px; padding:clamp(22px,3.4vw,34px); overflow:hidden; border:1px solid #4a3b60; background:radial-gradient(ellipse at 10% 0%,rgba(158,105,218,.19),transparent 52%),radial-gradient(ellipse at 100% 100%,rgba(85,190,151,.12),transparent 47%),#0a080e; text-align:center; animation:tat-result-in .48s cubic-bezier(.2,.8,.2,1) both; }
+.tat-result[hidden] { display:none !important; }
+.tat-result::before { position:absolute; inset:9px; border:1px solid rgba(200,168,255,.17); content:""; pointer-events:none; }
+.tat-result-kicker { position:relative; display:flex; justify-content:center; align-items:center; gap:8px; margin:0; color:var(--green,#8be9c7); font-size:10px; font-weight:900; letter-spacing:.13em; }
+.tat-result-side { position:relative; display:inline-block; margin-top:24px; padding:6px 11px; border:1px solid #58476d; color:#c8a8ff; font-size:10px; font-weight:900; letter-spacing:.12em; }
+.tat-result h3 { position:relative; max-width:100%; margin:17px auto 0; color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:clamp(39px,5.2vw,64px); font-weight:400; line-height:1.03; overflow-wrap:anywhere; }
+.tat-result-context { position:relative; margin:13px auto 0; color:#bcb2c9; font-size:13px; line-height:1.55; }
+.tat-result-line { position:relative; margin:19px auto 0; color:#8be9c7; font-size:14px; font-weight:700; line-height:1.65; }
+@keyframes tat-result-in { from { opacity:0; transform:translateY(12px) scale(.99); } to { opacity:1; transform:translateY(0) scale(1); } }
+.tat-session-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:20px; padding:15px 0; border-top:1px solid #28232e; border-bottom:1px solid #28232e; }
+.tat-session-row>div { display:flex; align-items:baseline; gap:10px; }
+.tat-session-number { color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:34px; line-height:1; }
+.tat-session-label { color:#aaa1b4; font-size:10px; font-weight:900; letter-spacing:.08em; }
+.tat-session-note { color:#9e95a8; font-size:11px; text-align:right; }
+.tat-result-actions { margin-top:20px; padding-top:17px; border-top:1px solid #28232e; }
+.tat-result-actions[hidden] { display:none !important; }
+.tat-share-buttons { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; margin-top:11px; }
+.tat-share-button { min-width:0; min-height:48px; padding:9px 10px; border:1px solid #39313f; border-radius:0; background:#0b090e; color:#f4eff9; font:800 12px/1.3 Manrope,Arial,sans-serif; cursor:pointer; transition:border-color .18s,color .18s,background .18s; }
+.tat-share-primary { border-color:var(--purple,#c8a8ff); background:var(--purple,#c8a8ff); color:#09070d; }
+.tat-share-button:hover:not(:disabled) { border-color:var(--green,#8be9c7); color:var(--green,#8be9c7); }
+.tat-share-primary:hover:not(:disabled) { border-color:#e8dcff; background:#e8dcff; color:#09070d; }
+.tat-share-button:disabled { opacity:.4; cursor:not-allowed; }
+.tat-feedback { min-height:19px; margin:10px 0 0; color:var(--green,#8be9c7); font-size:11px; line-height:1.5; }
+.tat-console-bottom { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; }
+.tat-reset-button { min-height:35px; padding:5px 0; border:0; background:transparent; color:#b7adbf; font:700 11px/1.4 Manrope,Arial,sans-serif; text-decoration:underline; text-underline-offset:4px; cursor:pointer; }
+.tat-reset-button:hover { color:#fff; }
+.tat-console-bottom>span { color:#77707f; font-size:10px; text-align:right; }
+.tat-history { margin-top:39px; }
+.tat-section-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:15px; margin-bottom:13px; }
+.tat-section-heading h2 { margin:7px 0 0; color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:35px; font-weight:400; line-height:1.05; }
+.tat-section-heading>p { margin:0; color:#968d9f; font-size:12px; text-align:right; }
+.tat-history-list { display:grid; gap:8px; }
+.tat-history-item { display:grid; grid-template-columns:minmax(0,1fr) minmax(120px,.8fr); align-items:center; gap:12px; padding:12px 15px; border:1px solid #29242f; background:#050506; }
+.tat-history-context { min-width:0; }
+.tat-history-context strong { display:block; overflow:hidden; color:#eee8f4; font-size:13px; font-weight:800; text-overflow:ellipsis; white-space:nowrap; }
+.tat-history-context span { display:block; margin-top:4px; overflow:hidden; color:#8f8799; font-size:10px; text-overflow:ellipsis; white-space:nowrap; }
+.tat-history-pick { min-width:0; color:#c8a8ff; font-size:13px; font-weight:800; text-align:right; overflow-wrap:anywhere; }
+.tat-empty { margin:0; padding:13px 15px; border:1px solid #29242f; color:#9c93a4; font-size:13px; }
+.tat-side-notes { position:sticky; top:calc(var(--site-header-height,120px) + 22px); align-self:start; padding-top:7px; }
+.tat-side-notes h2 { max-width:270px; margin:12px 0 15px; color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:clamp(32px,3vw,43px); font-weight:400; line-height:1.04; }
+.tat-side-notes h2 em { color:var(--purple,#c8a8ff); font-style:normal; }
+.tat-side-notes p:not(.tat-overline) { margin:0 0 14px; color:#c2b9cb; font-size:14px; line-height:1.78; }
+.tat-side-facts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:21px 0; padding:15px 0; border-top:1px solid #29242f; border-bottom:1px solid #29242f; }
+.tat-side-facts>div { display:flex; flex-direction:column; gap:4px; }
+.tat-side-facts strong { color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:34px; font-weight:400; line-height:1; }
+.tat-side-facts span { color:#9f96aa; font-size:10px; }
+.tat-side-link { display:inline-flex; align-items:center; gap:8px; color:var(--purple,#c8a8ff); font-size:12px; font-weight:800; line-height:1.55; text-decoration:none; }
+.tat-side-link span { color:var(--green,#8be9c7); font-size:18px; }
+.tat-share-section { margin-top:55px; }
+.tat-share-section .wf-share-feedback { margin-top:0; }
+.tat-seo-section { display:grid; grid-template-columns:minmax(230px,.82fr) minmax(0,1.18fr); gap:clamp(30px,5vw,75px); margin-top:68px; padding-top:35px; border-top:1px solid #25212b; }
+.tat-seo-heading h2 { max-width:390px; margin:12px 0 0; color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:clamp(36px,4.4vw,54px); font-weight:400; line-height:1.03; }
+.tat-seo-heading h2 em { color:var(--purple,#c8a8ff); font-style:normal; }
+.tat-seo-copy { color:#c9c1d1; font-size:16px; line-height:1.82; }
+.tat-seo-copy p { margin:0 0 17px; }
+.tat-faq-section { margin-top:64px; padding-top:30px; border-top:1px solid #25212b; }
+.tat-faq-heading h2 { margin:11px 0 15px; color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:clamp(36px,4.5vw,54px); font-weight:400; line-height:1.04; }
+.tat-faq-list { width:100%; max-width:none; }
+.tat-faq-list details { padding:18px 0; border-top:1px solid #29252f; }
+.tat-faq-list details:last-child { border-bottom:1px solid #29252f; }
+.tat-faq-list summary { color:#f6f0fa; font-size:16px; font-weight:800; line-height:1.5; cursor:pointer; }
+.tat-faq-list summary::marker { color:var(--green,#8be9c7); }
+.tat-faq-list details p { max-width:900px; margin:12px 0 2px; color:#bdb4c7; font-size:15px; line-height:1.75; }
+
+/* Result image/share dialog mirrors the other Whimfate modules. */
+.tat-share-dialog { width:min(740px,calc(100vw - 28px)); max-width:740px; max-height:min(90vh,900px); margin:auto; padding:0; overflow:auto; border:1px solid #3b3048; border-radius:2px; background:#050506; color:#f7f1ff; box-shadow:0 28px 100px rgba(0,0,0,.75),0 0 48px rgba(130,76,190,.12); }
+.tat-share-dialog::backdrop { background:rgba(0,0,0,.84); backdrop-filter:blur(7px); }
+.tat-share-dialog:not([open]) { display:none; }
+.tat-share-dialog.is-open { display:block; position:fixed; z-index:9999; inset:50% auto auto 50%; transform:translate(-50%,-50%); }
+.tat-dialog-inner { padding:clamp(19px,4vw,32px); }
+.tat-dialog-head { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; }
+.tat-dialog-head h2 { margin:9px 0 0; color:#fff; font-family:var(--display,"Berkshire Swash",Georgia,serif); font-size:clamp(32px,5vw,45px); font-weight:400; line-height:1.02; }
+.tat-dialog-close { flex:none; display:grid; place-items:center; width:42px; height:42px; border:1px solid #39313f; background:#0b090e; color:#fff; font-size:27px; cursor:pointer; }
+.tat-dialog-close:hover { border-color:var(--purple,#c8a8ff); color:var(--purple,#c8a8ff); }
+.tat-dialog-intro { margin:13px 0 17px; color:#c9c0d2; font-size:14px; line-height:1.65; }
+.tat-dialog-preview { display:grid; place-items:center; min-height:100px; max-height:330px; overflow:hidden; padding:13px; border:1px solid #2d2635; background:#08070a; }
+.tat-dialog-preview img { display:block; width:auto; max-width:100%; max-height:290px; object-fit:contain; }
+.tat-dialog-preview img[hidden],.tat-dialog-preview p[hidden] { display:none; }
+.tat-dialog-preview p { margin:8px; color:#a99fb3; font-size:13px; text-align:center; }
+.tat-dialog-actions { display:grid; grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr)); gap:8px; margin-top:12px; }
+.tat-dialog-primary,.tat-dialog-secondary { min-width:0; min-height:46px; padding:9px 12px; border:1px solid #3b3345; background:#0b090e; color:#f7f1ff; font:800 12px/1.35 Manrope,sans-serif; cursor:pointer; }
+.tat-dialog-primary { border-color:var(--purple,#c8a8ff); background:var(--purple,#c8a8ff); color:#09060e; }
+.tat-dialog-primary:hover:not(:disabled) { background:#e5d8ff; }
+.tat-dialog-secondary:hover:not(:disabled) { border-color:var(--green,#8be9c7); color:var(--green,#8be9c7); }
+.tat-dialog-primary:disabled,.tat-dialog-secondary:disabled { opacity:.4; cursor:not-allowed; }
+.tat-dialog-note { margin:11px 0 16px; color:#a99fb3; font-size:12px; line-height:1.6; }
+.tat-dialog-socials { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; padding-top:15px; border-top:1px solid #28232e; }
+.tat-dialog-social { min-width:0; min-height:43px; padding:8px 10px; border:1px solid #312b38; background:#09080c; color:#eee8f4; font:800 12px/1.3 Manrope,sans-serif; cursor:pointer; }
+.tat-dialog-social:hover { border-color:var(--green,#8be9c7); color:var(--green,#8be9c7); }
+.tat-dialog-feedback { min-height:20px; margin:12px 0 0; color:var(--green,#8be9c7); font-size:12px; line-height:1.6; }
+.tat-dialog-feedback:empty { display:none; }
+
+@media (max-width:980px) {
+  .tat-workspace { grid-template-columns:minmax(0,1fr) 245px; gap:26px; }
+  .tat-side-notes { top:90px; }
+}
+@media (max-width:760px) {
+  .tat-page { padding-bottom:56px; }
+  .tat-intro { padding:24px 0 21px; }
+  .tat-kicker { font-size:9px; letter-spacing:.08em; }
+  .tat-intro h1 { margin:12px 0 6px; font-size:clamp(45px,11vw,66px); }
+  .tat-intro>p:last-child { margin-top:7px; font-size:14px; line-height:1.5; }
+  .tat-workspace { grid-template-columns:minmax(0,1fr); gap:27px; }
+  .tat-console { padding:clamp(14px,4vw,21px); }
+  .tat-console-head { gap:8px; }
+  .tat-overline { font-size:9px; letter-spacing:.08em; }
+  .tat-console-head h2 { font-size:clamp(25px,6.6vw,33px); }
+  .tat-status { padding:5px 7px; font-size:8px; }
+  .tat-context-label { margin-top:19px; }
+  .tat-control-label { font-size:9px; }
+  .tat-context-label input { min-height:44px; padding:0 11px; font-size:13px; }
+  .tat-options-grid { grid-template-columns:minmax(0,1fr) 27px minmax(0,1fr); gap:6px; margin-top:13px; }
+  .tat-option-input { gap:7px; padding:10px; }
+  .tat-input-heading { gap:6px; font-size:8px; }
+  .tat-input-heading b { width:22px; height:22px; font-size:11px; }
+  .tat-option-input input { min-height:48px; padding:0 9px; font-size:13px; }
+  .tat-input-or { width:25px; height:25px; margin-bottom:9px; font-size:7px; }
+  .tat-validation { min-height:18px; margin-top:7px; font-size:10px; }
+  .tat-decide-button { min-height:51px; margin-top:1px; font-size:12px; }
+  .tat-decide-button b { font-size:19px; }
+  .tat-result { margin-top:15px; padding:20px 14px; }
+  .tat-result-kicker { font-size:8px; }
+  .tat-result-side { margin-top:15px; font-size:8px; }
+  .tat-result h3 { margin-top:11px; font-size:clamp(31px,8.5vw,43px); }
+  .tat-result-context { margin-top:8px; font-size:11px; }
+  .tat-result-line { margin-top:12px; font-size:11px; }
+  .tat-session-row { margin-top:13px; padding:11px 0; }
+  .tat-session-number { font-size:27px; }
+  .tat-session-label { font-size:8px; letter-spacing:.04em; }
+  .tat-session-note { max-width:110px; font-size:9px; }
+  .tat-result-actions { margin-top:14px; padding-top:13px; }
+  .tat-share-buttons { gap:6px; margin-top:9px; }
+  .tat-share-button { min-height:43px; padding:6px 5px; font-size:10px; }
+  .tat-feedback { font-size:10px; }
+  .tat-console-bottom { margin-top:10px; }
+  .tat-reset-button { font-size:10px; }
+  .tat-console-bottom>span { font-size:9px; }
+  .tat-history { margin-top:25px; }
+  .tat-section-heading { align-items:flex-start; flex-direction:column; gap:5px; margin-bottom:10px; }
+  .tat-section-heading h2 { font-size:29px; }
+  .tat-section-heading>p { font-size:10px; text-align:left; }
+  .tat-history-item { grid-template-columns:minmax(0,1fr) minmax(90px,.8fr); gap:8px; padding:10px 11px; }
+  .tat-history-context strong { font-size:11px; }
+  .tat-history-context span,.tat-history-pick { font-size:10px; }
+  .tat-history-pick { max-width:118px; }
+  .tat-side-notes { position:static; padding-top:0; }
+  .tat-side-notes h2 { max-width:100%; margin:10px 0; font-size:clamp(30px,8vw,38px); }
+  .tat-side-notes p:not(.tat-overline) { margin-bottom:10px; font-size:13px; line-height:1.65; }
+  .tat-side-facts { margin:13px 0; padding:10px 0; }
+  .tat-side-facts strong { font-size:27px; }
+  .tat-side-link { font-size:11px; }
+  .tat-share-section { margin-top:37px; }
+  .tat-seo-section { grid-template-columns:minmax(0,1fr); gap:12px; margin-top:47px; padding-top:24px; }
+  .tat-seo-heading h2 { max-width:100%; font-size:clamp(31px,8.5vw,40px); }
+  .tat-seo-copy { font-size:14px; line-height:1.72; }
+  .tat-seo-copy p { margin-bottom:13px; }
+  .tat-faq-section { margin-top:42px; padding-top:21px; }
+  .tat-faq-heading h2 { margin:8px 0 10px; font-size:clamp(32px,8.5vw,41px); }
+  .tat-faq-list details { padding:14px 0; }
+  .tat-faq-list summary { font-size:14px; }
+  .tat-faq-list details p { margin-top:8px; font-size:13px; line-height:1.65; }
+  .tat-dialog-inner { padding:17px 14px; }
+  .tat-dialog-head h2 { font-size:31px; }
+  .tat-dialog-intro { font-size:12px; }
+  .tat-dialog-actions { grid-template-columns:1fr 1fr; }
+  .tat-dialog-primary { grid-column:1/-1; }
+  .tat-dialog-socials { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:380px) {
+  .tat-options-grid { grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr); gap:4px; }
+  .tat-option-input { padding:8px; }
+  .tat-option-input input { font-size:12px; }
+  .tat-session-note { max-width:90px; }
+  .tat-share-button { font-size:9px; }
+  .tat-reset-button { padding-inline:2px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .tat-result,.tat-decide-button { animation:none !important; transition:none !important; }
+}

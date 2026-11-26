@@ -1,0 +1,5 @@
+Whimfate Main Site Root v13
+Updated: 2026-10-27
+Root files only: game/app folders are intentionally excluded.
+Includes compact shared masthead, white-to-mint-to-violet Whimfate wordmark, and tighter mobile-first shared layouts.
+Ad slots remain hidden.

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Flip a purple virtual coin for a quick heads-or-tails decision. Track your flips and share a high-quality result card. Free, private, and instant.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="describedby" href="/llms.txt">
+  <link rel="canonical" href="https://wimfate.com/coin-flip/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Whimfate">
+  <meta property="og:title" content="Coin Flip — Heads or Tails | Whimfate">
+  <meta property="og:description" content="One purple coin. Two sides. One tiny cosmic verdict. Flip, reveal, and share your result card.">
+  <meta property="og:url" content="https://wimfate.com/coin-flip/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebApplication","name":"Whimfate Coin Flip","url":"https://wimfate.com/coin-flip/","applicationCategory":"GameApplication","operatingSystem":"Any","description":"A free, browser-based virtual coin toss with a purple coin animation with clearly marked HEADS and TAILS sides, high-resolution share cards, and local flip history.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+      {"@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"Is this online coin flip random?","acceptedAnswer":{"@type":"Answer","text":"The result is selected independently of the animation, using crypto.getRandomValues() when the browser supports it and a standard random fallback otherwise."}},
+        {"@type":"Question","name":"Can I share the coin flip result as an image?","acceptedAnswer":{"@type":"Answer","text":"Yes. Download a high-resolution PNG card with the coin, result, a rotating funny line, and the wimfate.com watermark. Devices that support file sharing can attach the image directly."}},
+        {"@type":"Question","name":"Does Whimfate store my choices?","acceptedAnswer":{"@type":"Answer","text":"No account is needed. Flip history and counts exist in the current page session only; the module does not send your choices or names to a server."}}
+      ]}
+    ]
+  }
+  </script>
+  <title>Coin Flip — Heads or Tails | Whimfate</title>
+  <script src="../site.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="page-game-module page-coin-flip">
+  <div id="site-header"></div>
+  <main id="main-content" class="game-main shell">
+    <header class="game-intro">
+      <p class="game-kicker"><span class="status-dot"></span> PURE CHANCE · NO MEETING REQUIRED</p>
+      <h1>FLIP THE <em>COIN</em></h1>
+      <p>Two sides. One flip. Let the coin settle it.</p>
+    </header>
+
+    <div class="game-workspace">
+      <div class="game-workspace-main">
+        <section class="game-console coin-console" aria-labelledby="coin-console-title">
+          <div class="game-console-head">
+            <div><span class="game-overline">THE OFFICIAL UNOFFICIAL DECIDER</span><h2 id="coin-console-title">Call it in the air.</h2></div>
+            <span class="game-ready" id="coin-ready">READY</span>
+          </div>
+          <div class="coin-stage">
+            <canvas class="coin-canvas" id="coin-canvas" width="600" height="600" role="img" aria-label="Purple coin showing HEADS on one side and TAILS on the other.">A purple coin with HEADS clearly marked on one side and TAILS on the other.</canvas>
+            <p class="coin-result" id="coin-result" aria-live="polite" aria-atomic="true">The universe is waiting for your input.</p>
+            <p class="coin-result-subline" id="coin-result-subline">No pressure. It's only the timeline.</p>
+          </div>
+          <button class="game-primary-button" id="flip-button" type="button"><span aria-hidden="true">↻</span> FLIP THE COIN</button>
+          <div class="game-stats" aria-label="Flip statistics">
+            <div><span>HEADS</span><strong id="heads-count">0</strong></div>
+            <div><span>FLIPS</span><strong id="flip-count">0</strong></div>
+            <div><span>TAILS</span><strong id="tails-count">0</strong></div>
+          </div>
+          <div class="game-actions">
+            <button class="game-secondary-button" id="copy-coin" type="button" disabled>Share text</button>
+            <button class="game-secondary-button" id="share-coin" type="button" disabled>Share picture</button>
+            <button class="game-secondary-button" id="download-coin" type="button" disabled>Download image</button>
+            <button class="game-text-button" id="reset-coin" type="button">Reset stats</button>
+          </div>
+          <p class="game-feedback" id="coin-feedback" role="status" aria-live="polite"></p>
+        </section>
+
+        <section class="game-history" aria-labelledby="coin-history-title">
+          <div class="game-section-head"><h2 id="coin-history-title">Recent flips</h2><p>This visit only. No account, no logbook.</p></div>
+          <div class="coin-history-list" id="coin-history"><p class="game-empty">Nothing flipped yet. The coin is very patient.</p></div>
+        </section>
+      </div>
+
+      <aside class="game-side-notes" aria-labelledby="coin-notes-title">
+        <p class="game-overline">A TINY, DRAMATIC DECISION</p>
+        <h2 id="coin-notes-title">Heads or tails. No committee.</h2>
+        <p>Use a virtual coin toss when two low-stakes options are both fine, when you need to choose who goes first, or when the group chat has entered its 19th round of “I don't mind.”</p>
+        <p>Each result is chosen in your browser with a secure random source when available. The animation is theatre; the result is decided separately from the coin's visual spin.</p>
+        <p>Both sides are clearly marked: HEADS on one face and TAILS on the other. The purple finish, metallic rim, and simple lettering keep every result easy to read.</p>
+        <a class="game-side-link" href="/dice-roll/">Need dice instead? Roll them <span aria-hidden="true">→</span></a>
+      </aside>
+    </div>
+
+    <section class="wf-share-section" aria-labelledby="coin-share-title">
+          <div class="wf-share-copy">
+            <p class="wf-share-overline">SPREAD THE CHAOS</p>
+            <h2 id="coin-share-title">Share with your friends.</h2>
+            <p>Send the verdict. Start absolutely unnecessary debates.</p>
+          </div>
+          <div class="wf-share-social-grid" aria-label="Share Whimfate Coin Flip">
+            <button class="wf-share-social-link" type="button" data-share="whatsapp" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.3-4.9A8.4 8.4 0 1 1 20.5 11.8Z"/><path d="M9 8.2c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1-.6 1.3-.4.4-1.1.6-1.8.5-1.1-.2-2.5-.8-3.8-2.1-1.1-1-1.8-2.3-2-3.3-.2-.9.1-1.5.5-1.9Z"/></svg><span>WhatsApp</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="telegram" aria-label="Share on Telegram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-3.2 18-6.1-5.1-3.2 3.1.6-5.9L18 6.2 7.2 12.8 3 11.3 21 3Z"/></svg><span>Telegram</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="x" aria-label="Share on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h4.8l4.1 5.7L17.8 3H20l-6.1 7.1L21 21h-4.8l-4.6-6.4L6 21H3.8l6.5-7.8L4 3Zm4 1.8H7l9.2 14.4h1.1L8 4.8Z"/></svg><span>X</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="reddit" aria-label="Share on Reddit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2 2 0 0 1 2 2l-.2.9 3.1.7a2.2 2.2 0 1 1 .4 1.7l-3.8-.9-.8 3.1c2.9.1 5.2 1.4 5.2 3.1 0 2.1-2.6 3.8-5.9 3.8s-5.9-1.7-5.9-3.8c0-1.7 2.3-3 5.2-3.1l.9-3.5a.9.9 0 0 1 1.1-.7l3.9.9a2.2 2.2 0 0 1 .5-1.1l-3.9-.9a2 2 0 0 1-1.8 1.1 2 2 0 1 1 0-4Zm-2.8 9.9a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Zm5.6 0a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8ZM9.5 16a4.2 4.2 0 0 0 5 0"/></svg><span>Reddit</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="facebook" aria-label="Share on Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V13h2.8v8h3.4Z"/></svg><span>Facebook</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="discord" aria-label="Prepare result for Discord">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.8 5.6A17 17 0 0 0 15.7 4l-.5 1a15 15 0 0 0-6.4 0l-.5-1a17 17 0 0 0-4.1 1.6C1.6 9.4.9 13.1 1.2 16.8a16 16 0 0 0 5 2.5l1.1-1.8-1.7-.8.4-.3a12 12 0 0 0 12 0l.4.3-1.7.8 1.1 1.8a16 16 0 0 0 5-2.5c.4-4.3-.8-7.9-3-11.2ZM8.7 14.6c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/></svg><span>Discord</span>
+            </button>
+            <button class="wf-share-social-link" type="button" data-share="copy-link" aria-label="Copy Whimfate link">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 14.4a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7M14.4 9.6a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/></svg><span>Copy link</span>
+            </button>
+          </div>
+          <p class="wf-share-feedback" id="coin-social-feedback" role="status" aria-live="polite">Choose a network to share the verdict text and link. For the actual coin image, use Share picture on supported devices or Download image and attach the PNG.</p>
+        </section>
+
+    <section class="coin-seo-section" aria-labelledby="coin-seo-title">
+      <div class="coin-seo-intro"><p class="game-overline">A BETTER WAY TO PICK</p><h2 id="coin-seo-title">A free online coin flip for life's tiny decisions.</h2></div>
+      <div class="coin-seo-copy">
+        <p>Need a quick heads-or-tails decision? Whimfate is a free virtual coin flipper for choosing between two low-stakes options, deciding who goes first, settling a friendly disagreement, or ending an endless “you pick” conversation. Press the button, watch the purple coin spin, and get a clear result.</p>
+        <p>Every flip is generated in your browser, using the browser's cryptographic random number generator when available. The animation adds a little suspense, but it does not determine the outcome. Flip again to build a short history, share a result card, or copy a link so a friend can call the next toss.</p>
+      </div>
+    </section>
+
+    <section class="coin-faq-section" aria-labelledby="coin-faq-title">
+      <div class="coin-faq-heading"><p class="game-overline">NO ORACLE DEGREE REQUIRED</p><h2 id="coin-faq-title">Coin flip FAQ</h2></div>
+      <div class="coin-faq-list">
+        <details><summary>Is this online coin flip random?</summary><p>The result is selected independently of the animation, using <code>crypto.getRandomValues()</code> when the browser supports it and a standard random fallback otherwise. The coin's final face is then animated to match the selected result.</p></details>
+        <details><summary>Can I share the coin flip result as an image?</summary><p>Yes. Download a high-resolution PNG card with the coin, result, a rotating funny line, and the wimfate.com watermark. On devices that support sharing files, Share picture can attach the image directly on supported devices; otherwise use Download image and attach the PNG manually.</p></details>
+        <details><summary>Does Whimfate store my choices?</summary><p>No account is needed. Flip history and counts exist in the current page session only; the module does not send your choices or names to a server.</p></details>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+/* Whimfate Team Splitter — local module styles. Shared chrome comes from ../site.css. */
+.page-team-splitter .site-atmosphere { display: none !important; }
+.page-team-splitter { background: #000; }
+.ts-main { padding-bottom: 22px; }
+.ts-main[aria-busy="true"] { cursor: progress; }
+.ts-intro { padding-top: 62px; padding-bottom: 52px; text-align: center; }
+.ts-kicker { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 0; color: #c9aff5; font-size: 14px; font-weight: 800; letter-spacing: .12em; line-height: 1.5; }
+.ts-status-dot { display: inline-block; width: 8px; height: 8px; flex: none; border-radius: 50%; background: #8be9c7; box-shadow: 0 0 12px rgba(139,233,199,.45); }
+.ts-intro h1 { margin: 19px 0 13px; font-family: var(--display); font-size: clamp(66px, 8vw, 105px); font-weight: 400; line-height: .92; letter-spacing: -.025em; }
+.ts-intro h1 em, .ts-results h2 em, .ts-seo-heading h2 em { color: var(--purple); font-style: normal; }
+.ts-lede { margin: 0; color: #f5f1f8; font-size: clamp(21px, 2.5vw, 27px); line-height: 1.5; }
+.ts-lede strong { color: #fff; font-weight: 800; }
+.ts-aside { margin: 20px 0 0; color: #bbb3c4; font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+
+.ts-workbench { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 18px; align-items: stretch; }
+.ts-roster-panel, .ts-machine-panel { min-width: 0; border: 1px solid #29252f; border-radius: 3px; background: #050506; padding: clamp(22px, 3.3vw, 36px); }
+.ts-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 28px; }
+.ts-overline { display: block; color: #aaa0b7; font-size: 13px; font-weight: 800; letter-spacing: .11em; }
+.ts-panel-head h2 { margin: 9px 0 0; color: #fff; font-family: var(--display); font-size: clamp(28px, 3.1vw, 39px); font-weight: 400; line-height: 1.05; }
+.ts-count-badge { flex: none; padding: 6px 10px; border: 1px solid #3b304b; color: #d8c2ff; font-size: 14px; font-weight: 800; white-space: nowrap; }
+.ts-label { display: block; margin-bottom: 10px; color: #f5f2f7; font-size: 17px; font-weight: 800; }
+#names-input { display: block; width: 100%; min-height: 225px; resize: vertical; padding: 17px 18px; border: 1px solid #34303a; border-radius: 2px; outline: none; background: #000; color: #fff; font-size: 18px; line-height: 1.65; letter-spacing: 0; transition: border-color .16s ease, box-shadow .16s ease; }
+#names-input::placeholder { color: #77717e; opacity: 1; }
+#names-input:focus { border-color: #ae8bdd; box-shadow: 0 0 0 2px rgba(200,168,255,.11); }
+.ts-input-meta { display: flex; justify-content: space-between; gap: 12px; margin-top: 9px; color: #b8b1c0; font-size: 14px; line-height: 1.5; }
+.ts-input-meta span:last-child { flex: none; color: #e3d7f5; font-variant-numeric: tabular-nums; }
+.ts-roster-actions { display: flex; justify-content: space-between; gap: 14px; margin-top: 15px; }
+.ts-text-button { padding: 2px 0; border: 0; background: none; color: #d2b9ff; font-size: 15px; font-weight: 800; text-align: left; text-decoration: underline; text-decoration-color: #66527e; text-underline-offset: 4px; cursor: pointer; }
+.ts-text-button:hover { color: #fff; }
+.ts-muted-button { color: #c1bac8; text-decoration-color: #49444f; }
+.ts-team-setting { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 31px; padding-top: 25px; border-top: 1px solid #242129; }
+.ts-team-setting .ts-label { margin: 0 0 4px; }
+.ts-team-setting-copy p { margin: 0; color: #bcb5c5; font-size: 15px; line-height: 1.6; }
+.ts-stepper { display: flex; align-items: center; flex: none; border: 1px solid #35313b; background: #000; }
+.ts-stepper button { width: 42px; height: 45px; padding: 0; border: 0; background: #111014; color: #e5d5ff; font-size: 24px; cursor: pointer; }
+.ts-stepper button:hover { background: #21182b; }
+.ts-stepper input { width: 46px; height: 45px; padding: 0; border: 0; border-inline: 1px solid #302a37; border-radius: 0; outline: 0; background: #000; color: #fff; font-size: 20px; font-weight: 800; text-align: center; font-variant-numeric: tabular-nums; appearance: textfield; -moz-appearance: textfield; }
+.ts-stepper input::-webkit-inner-spin-button, .ts-stepper input::-webkit-outer-spin-button { margin: 0; -webkit-appearance: none; }
+.ts-validation { min-height: 26px; margin: 14px 0 0; color: #bcb4c7; font-size: 15px; line-height: 1.55; }
+.ts-validation.is-error { color: #ffb4b4; }
+
+.ts-machine-panel { display: flex; flex-direction: column; }
+.ts-machine-head { margin-bottom: 26px; }
+.ts-ready-state { margin-top: 2px; padding: 5px 8px; border: 1px solid #2c4237; color: #9ae9c9; font-size: 12px; font-weight: 800; letter-spacing: .08em; white-space: nowrap; }
+.ts-ready-state.is-working { border-color: #665034; color: #ffdb9d; }
+.ts-ready-state.is-done { border-color: #3d5b45; color: #a6f2c3; }
+.ts-meter { padding: 23px 0 21px; }
+.ts-meter-topline, .ts-meter-readout { display: flex; justify-content: space-between; gap: 10px; color: #8c8495; font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+.ts-meter-topline { margin-bottom: 13px; }
+.ts-meter-track { position: relative; height: 12px; display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 3px; }
+.ts-meter-segment { display: block; height: 12px; background: #27202f; }
+.ts-meter-segment-1, .ts-meter-segment-10 { background: #594078; }
+.ts-meter-segment-2, .ts-meter-segment-9 { background: #7b5a9f; }
+.ts-meter-segment-3, .ts-meter-segment-8 { background: #9c83bb; }
+.ts-meter-segment-4, .ts-meter-segment-7 { background: #648c7e; }
+.ts-meter-segment-5, .ts-meter-segment-6 { background: #54ab86; }
+.ts-meter-needle { position: absolute; top: -14px; left: 50%; width: 3px; height: 40px; background: #fff; box-shadow: 0 0 8px rgba(255,255,255,.75), 0 0 19px rgba(200,168,255,.75); transform: translateX(-50%); transition: left .12s cubic-bezier(.17,.67,.35,1); }
+.ts-meter-needle::before { content: ''; position: absolute; top: -3px; left: 50%; width: 9px; height: 9px; border-radius: 50%; background: #fff; transform: translateX(-50%); }
+.ts-meter-readout { margin-top: 16px; color: #beb6c8; font-size: 11px; }
+.ts-machine-message { display: flex; align-items: center; gap: 16px; min-height: 103px; margin: 6px 0 24px; padding: 19px 0; border-top: 1px solid #27232d; border-bottom: 1px solid #27232d; }
+.ts-machine-symbol { display: grid; place-items: center; flex: none; width: 54px; height: 54px; border: 1px solid #4b3c60; color: #d1b5ff; font-size: 33px; line-height: 1; }
+.ts-machine-symbol.is-spinning { animation: ts-rotate .72s linear infinite; }
+@keyframes ts-rotate { to { transform: rotate(360deg); } }
+.ts-machine-message p { margin: 0; color: #ded8e6; font-size: 16px; line-height: 1.65; }
+.ts-pull-button { display: flex; align-items: center; width: 100%; min-height: 77px; gap: 17px; padding: 13px 17px; border: 1px solid #c8a8ff; border-radius: 2px; background: #c8a8ff; color: #08060b; text-align: left; cursor: pointer; transition: background .17s ease, border-color .17s ease, transform .17s ease; }
+.ts-pull-button:hover:not(:disabled) { transform: translateY(-2px); border-color: #e2d2ff; background: #e2d2ff; }
+.ts-pull-button:active:not(:disabled) { transform: translateY(1px); }
+.ts-pull-button:disabled { opacity: .38; cursor: not-allowed; }
+.ts-pull-icon { display: grid; place-items: center; flex: none; width: 42px; height: 42px; border: 1px solid rgba(8,6,11,.44); }
+.ts-pull-icon span { position: relative; display: block; width: 4px; height: 23px; border-radius: 4px; background: #09070d; transform: rotate(0deg); transform-origin: center 75%; transition: transform .2s ease; }
+.ts-pull-icon span::before { content: ''; position: absolute; top: -5px; left: 50%; width: 17px; height: 7px; border-radius: 3px; background: #09070d; transform: translateX(-50%); }
+.ts-pull-icon span::after { content: ''; position: absolute; bottom: -5px; left: 50%; width: 13px; height: 5px; border-radius: 2px; background: #09070d; transform: translateX(-50%); }
+.ts-pull-button.is-pulled .ts-pull-icon span { transform: rotate(53deg); }
+.ts-pull-copy { display: flex; flex: 1; flex-direction: column; gap: 2px; }
+.ts-pull-copy strong { font-size: 18px; font-weight: 900; letter-spacing: .045em; line-height: 1.25; }
+.ts-pull-copy small { font-size: 12px; font-weight: 800; letter-spacing: .1em; line-height: 1.5; }
+.ts-pull-arrow { font-size: 26px; font-weight: 500; }
+.ts-local-note { margin: 16px 0 0; color: #aaa2b2; font-size: 13px; line-height: 1.5; text-align: center; }
+.ts-local-note span { margin-right: 5px; color: #8be9c7; font-size: 10px; }
+
+.ts-results { padding-top: 94px; scroll-margin-top: 200px; }
+.ts-results[hidden] { display: none !important; }
+.ts-results-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-bottom: 30px; }
+.ts-results-head .ts-kicker { justify-content: flex-start; font-size: 12px; }
+.ts-results h2 { margin: 12px 0 8px; font-family: var(--display); font-size: clamp(46px, 5.4vw, 68px); font-weight: 400; line-height: .98; }
+.ts-results-subtitle { margin: 0; color: #c5bdce; font-size: 17px; line-height: 1.65; }
+.ts-result-stamp { flex: none; padding: 9px 12px; border: 1px solid #3c3248; color: #d9c5ff; font-size: 13px; font-weight: 800; letter-spacing: .09em; }
+.ts-team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.ts-team-card { min-width: 0; padding: 24px 25px; border: 1px solid #2b2731; background: #050506; break-inside: avoid; }
+.ts-team-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding-bottom: 15px; border-bottom: 1px solid #25212b; }
+.ts-team-name { margin: 0; font-family: var(--display); font-size: 32px; font-weight: 400; line-height: 1.1; }
+.ts-team-size { color: #b8afc3; font-size: 13px; font-weight: 800; white-space: nowrap; }
+.ts-team-members { margin: 0; padding: 12px 0 0; list-style: none; }
+.ts-team-members li { display: flex; gap: 12px; padding: 7px 0; color: #f3eff6; font-size: 17px; line-height: 1.5; overflow-wrap: anywhere; }
+.ts-member-number { flex: none; width: 20px; color: #9786ac; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.ts-team-card:nth-child(4n+1) .ts-team-name { color: #d1b5ff; }
+.ts-team-card:nth-child(4n+2) .ts-team-name { color: #8be9c7; }
+.ts-team-card:nth-child(4n+3) .ts-team-name { color: #f3b5d9; }
+.ts-team-card:nth-child(4n) .ts-team-name { color: #a8caff; }
+.ts-results-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; margin-top: 25px; }
+.ts-action-button { min-height: 48px; padding: 0 17px; border: 1px solid #3b3544; border-radius: 2px; background: #060507; color: #f3edf9; font-size: 15px; font-weight: 800; cursor: pointer; transition: background .16s ease, border-color .16s ease; }
+.ts-action-button:hover { border-color: #a98bd4; background: #110d17; }
+.ts-action-primary { border-color: #c8a8ff; background: #c8a8ff; color: #07050a; }
+.ts-action-primary:hover { border-color: #e0d0ff; background: #e0d0ff; }
+.ts-action-quiet { margin-left: auto; border-color: transparent; background: transparent; color: #d4c1f1; }
+.ts-feedback { min-height: 22px; margin: 11px 0 0; color: #9ae9c9; font-size: 15px; }
+.ts-footnote { margin: 8px 0 0; color: #9c94a5; font-size: 14px; line-height: 1.7; }
+
+.ts-seo { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); gap: clamp(34px, 7vw, 90px); padding-top: 112px; padding-bottom: 25px; }
+.ts-seo-heading h2 { margin: 16px 0 0; font-family: var(--display); font-size: clamp(45px, 5vw, 64px); font-weight: 400; line-height: .98; }
+.ts-seo-copy { color: #cec7d5; font-size: 17px; line-height: 1.85; }
+.ts-seo-copy p { margin: 0 0 19px; }
+.ts-faq { padding-top: 58px; padding-bottom: 105px; }
+.ts-faq > h2 { margin: 13px 0 22px; font-family: var(--display); font-size: clamp(41px, 4.6vw, 58px); font-weight: 400; line-height: 1; }
+.ts-faq-list { max-width: 950px; }
+.ts-faq-list details { padding: 20px 0; border-bottom: 1px solid #28242d; }
+.ts-faq-list summary { color: #fff; font-size: 18px; font-weight: 800; line-height: 1.55; cursor: pointer; }
+.ts-faq-list summary::marker { color: #8be9c7; }
+.ts-faq-list details p { max-width: 880px; margin: 12px 0 0; color: #c8c1d0; font-size: 16px; line-height: 1.8; }
+
+@media (max-width: 900px) {
+  .ts-workbench { grid-template-columns: 1fr; }
+  .ts-roster-panel, .ts-machine-panel { padding: 28px; }
+  .ts-machine-message { min-height: 84px; }
+  .ts-seo { gap: 35px; }
+}
+@media (max-width: 720px) {
+  .ts-intro { padding-top: 43px; padding-bottom: 35px; }
+  .ts-intro h1 { margin-top: 17px; font-size: clamp(54px, 14vw, 78px); }
+  .ts-lede { font-size: 21px; }
+  .ts-aside { max-width: 320px; margin: 17px auto 0; font-size: 11px; line-height: 1.8; }
+  .ts-workbench { gap: 12px; }
+  .ts-roster-panel, .ts-machine-panel { padding: 22px 19px; }
+  .ts-panel-head { margin-bottom: 22px; }
+  .ts-panel-head h2 { font-size: 31px; }
+  .ts-overline { font-size: 11px; }
+  #names-input { min-height: 205px; padding: 14px; font-size: 17px; }
+  .ts-input-meta { font-size: 12px; }
+  .ts-team-setting { align-items: flex-start; flex-direction: column; gap: 13px; margin-top: 26px; padding-top: 21px; }
+  .ts-stepper { align-self: flex-start; }
+  .ts-machine-head { margin-bottom: 10px; }
+  .ts-meter { padding-top: 15px; }
+  .ts-machine-message { min-height: 92px; }
+  .ts-pull-button { min-height: 73px; padding: 11px; gap: 12px; }
+  .ts-pull-copy strong { font-size: 16px; }
+  .ts-pull-copy small { font-size: 11px; }
+  .ts-results { padding-top: 70px; scroll-margin-top: 155px; }
+  .ts-results-head { align-items: flex-start; flex-direction: column; gap: 15px; margin-bottom: 22px; }
+  .ts-results h2 { font-size: 49px; }
+  .ts-results-subtitle { font-size: 16px; }
+  .ts-team-grid { grid-template-columns: 1fr; gap: 10px; }
+  .ts-team-card { padding: 20px; }
+  .ts-team-name { font-size: 29px; }
+  .ts-results-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  .ts-action-button { min-height: 48px; padding: 0 10px; font-size: 14px; }
+  .ts-action-quiet { margin-left: 0; }
+  .ts-seo { grid-template-columns: 1fr; gap: 18px; padding-top: 77px; }
+  .ts-seo-heading h2 { font-size: 47px; }
+  .ts-seo-copy { font-size: 16px; }
+  .ts-faq { padding-top: 48px; padding-bottom: 70px; }
+  .ts-faq > h2 { font-size: 43px; }
+  .ts-faq-list summary { font-size: 17px; }
+  .ts-faq-list details p { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ts-pull-button, .ts-pull-icon span, .ts-meter-needle { transition: none !important; }
+  .ts-machine-symbol.is-spinning { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+
+/* Team Splitter mobile polish: compact controls, no min-width overflow, aligned FAQ/share shells. */
+.ts-main { width: 100%; min-width: 0; }
+.ts-intro, .ts-workbench, .ts-results, .ts-seo, .wf-share-section, .ts-faq { min-width: 0; }
+.ts-roster-panel, .ts-machine-panel, .ts-team-card, .ts-results-head, .ts-seo-copy { min-width: 0; }
+.ts-team-members, .ts-team-members li { overflow-wrap: anywhere; }
+.ts-results-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.ts-results-actions .ts-action-button { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.ts-faq-list { width: 100%; max-width: none; }
+.ts-faq-list details { width: 100%; min-width: 0; }
+@media (max-width: 900px) {
+  .ts-intro { padding-top: 38px; padding-bottom: 30px; }
+  .ts-intro h1 { font-size: clamp(48px, 9vw, 78px); }
+  .ts-lede { font-size: clamp(18px, 2.6vw, 22px); }
+  .ts-workbench { gap: 14px; }
+  .ts-roster-panel, .ts-machine-panel { padding: clamp(18px, 3.2vw, 28px); }
+  .ts-results { padding-top: 66px; }
+  .ts-seo { padding-top: 76px; }
+}
+@media (max-width: 720px) {
+  .ts-intro { padding-top: 28px; padding-bottom: 26px; }
+  .ts-intro h1 { margin: 14px 0 11px; font-size: clamp(43px, 12.8vw, 68px); line-height: .98; letter-spacing: -.035em; }
+  .ts-kicker { gap: 7px; font-size: 11px; letter-spacing: .07em; flex-wrap: wrap; }
+  .ts-status-dot { width: 7px; height: 7px; }
+  .ts-lede { font-size: clamp(17px, 5vw, 20px); line-height: 1.45; }
+  .ts-aside { max-width: 330px; margin-top: 13px; font-size: 10px; letter-spacing: .06em; line-height: 1.65; }
+  .ts-workbench { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .ts-roster-panel, .ts-machine-panel { padding: 18px 16px; }
+  .ts-panel-head { gap: 8px; margin-bottom: 17px; }
+  .ts-panel-head h2 { margin-top: 7px; font-size: clamp(25px, 7.8vw, 31px); }
+  .ts-overline { font-size: 10px; letter-spacing: .08em; line-height: 1.45; }
+  .ts-count-badge { padding: 5px 7px; font-size: 11px; }
+  .ts-label { margin-bottom: 8px; font-size: 15px; }
+  #names-input { min-height: 170px; padding: 12px; font-size: 16px; line-height: 1.55; }
+  .ts-input-meta { align-items: flex-start; gap: 6px; font-size: 11px; }
+  .ts-input-meta span:first-child { min-width: 0; flex: 1; }
+  .ts-input-meta span:last-child { white-space: nowrap; }
+  .ts-roster-actions { align-items: flex-start; flex-wrap: wrap; gap: 12px 18px; margin-top: 12px; }
+  .ts-text-button { font-size: 13px; line-height: 1.45; }
+  .ts-team-setting { align-items: flex-start; flex-direction: column; gap: 10px; margin-top: 20px; padding-top: 17px; }
+  .ts-team-setting-copy p { font-size: 13px; line-height: 1.5; }
+  .ts-stepper button { width: 38px; height: 40px; }
+  .ts-stepper input { width: 42px; height: 40px; font-size: 17px; }
+  .ts-validation { min-height: 20px; font-size: 13px; }
+  .ts-machine-head { margin-bottom: 9px; }
+  .ts-meter { padding: 15px 0; }
+  .ts-meter-topline, .ts-meter-readout { font-size: 9px; letter-spacing: .045em; }
+  .ts-meter-track, .ts-meter-segment { height: 10px; }
+  .ts-meter-needle { top: -12px; height: 34px; }
+  .ts-machine-message { min-height: 72px; gap: 11px; margin: 5px 0 17px; padding: 13px 0; }
+  .ts-machine-symbol { width: 43px; height: 43px; font-size: 27px; }
+  .ts-machine-message p { font-size: 14px; line-height: 1.55; }
+  .ts-pull-button { min-height: 62px; padding: 9px 11px; gap: 10px; }
+  .ts-pull-icon { width: 35px; height: 35px; }
+  .ts-pull-icon span { height: 19px; }
+  .ts-pull-copy strong { font-size: 14px; }
+  .ts-pull-copy small { font-size: 10px; letter-spacing: .06em; }
+  .ts-pull-arrow { font-size: 22px; }
+  .ts-local-note { margin-top: 11px; font-size: 11px; }
+  .ts-results { padding-top: 54px; scroll-margin-top: 132px; }
+  .ts-results-head { align-items: flex-start; flex-direction: column; gap: 11px; margin-bottom: 17px; }
+  .ts-results h2 { margin: 9px 0 7px; font-size: clamp(36px, 10.5vw, 48px); line-height: 1.0; }
+  .ts-results-subtitle { font-size: 14px; line-height: 1.55; }
+  .ts-result-stamp { padding: 6px 9px; font-size: 11px; }
+  .ts-team-grid { grid-template-columns: minmax(0,1fr); gap: 9px; }
+  .ts-team-card { padding: 15px 15px 14px; }
+  .ts-team-card-head { gap: 8px; padding-bottom: 10px; }
+  .ts-team-name { font-size: clamp(24px, 7vw, 29px); }
+  .ts-team-size { font-size: 11px; }
+  .ts-team-members { padding-top: 9px; }
+  .ts-team-members li { font-size: 14px; line-height: 1.5; }
+  .ts-results-actions { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; margin-top: 17px; }
+  .ts-results-actions .ts-action-button { width: 100%; min-width: 0; min-height: 43px; padding: 7px 6px; font-size: clamp(11px, 3.5vw, 13px); line-height: 1.25; white-space: normal; }
+  .ts-action-quiet { margin-left: 0; }
+  .ts-feedback { font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+  .ts-footnote { font-size: 12px; line-height: 1.55; }
+  .ts-seo { grid-template-columns: minmax(0,1fr); gap: 13px; padding-top: 61px; }
+  .ts-seo-heading h2 { margin-top: 10px; font-size: clamp(34px, 10vw, 45px); }
+  .ts-seo-copy { font-size: 15px; line-height: 1.72; }
+  .ts-seo-copy p { margin-bottom: 14px; }
+  .ts-faq { padding-top: 36px; padding-bottom: 55px; }
+  .ts-faq > h2 { margin: 9px 0 16px; font-size: clamp(33px, 9.5vw, 42px); line-height: 1.05; }
+  .ts-faq-list summary { font-size: 15px; line-height: 1.5; }
+  .ts-faq-list details { padding: 15px 0; }
+  .ts-faq-list details p { margin-top: 8px; font-size: 14px; line-height: 1.7; }
+}
+@media (max-width: 380px) {
+  .ts-intro h1 { font-size: 42px; }
+  .ts-roster-panel, .ts-machine-panel { padding: 15px 13px; }
+  .ts-panel-head h2 { font-size: 25px; }
+  .ts-count-badge { font-size: 10px; }
+  .ts-results-actions .ts-action-button { font-size: 11px; }
+  .ts-team-card { padding: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ts-machine-symbol.is-spinning { animation: none !important; }
+}

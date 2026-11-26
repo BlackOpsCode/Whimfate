@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Enter any two options and let Whimfate choose one at random. A quick, free two-option decision maker for everyday choices, group chats and game nights.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="describedby" href="/llms.txt">
+  <link rel="canonical" href="https://wimfate.com/this-or-that/">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Whimfate">
+  <meta property="og:title" content="This or That — Two-Option Decider | Whimfate">
+  <meta property="og:description" content="Put in two options. Let chance pick one. A simple, free random decision maker from Whimfate.">
+  <meta property="og:url" content="https://wimfate.com/this-or-that/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebApplication","name":"Whimfate This or That","url":"https://wimfate.com/this-or-that/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","description":"A free browser-based two-option random decision maker. Enter two custom options and let chance choose one.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+      {"@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"How does This or That work?","acceptedAnswer":{"@type":"Answer","text":"Enter any two options in the fields and press Let Fate Decide. Whimfate randomly selects one of the two options and displays the result."}},
+        {"@type":"Question","name":"Can I use my own options?","acceptedAnswer":{"@type":"Answer","text":"Yes. This or That is built for your own choices. Enter anything you want in Option A and Option B, from dinner ideas and destinations to names, activities or game-night decisions."}},
+        {"@type":"Question","name":"Is the result selected randomly?","acceptedAnswer":{"@type":"Answer","text":"The result is selected by a random bit from the browser's Web Crypto API when available, with a standard browser-random fallback. The animation does not determine the result."}},
+        {"@type":"Question","name":"Can I use it to decide with friends?","acceptedAnswer":{"@type":"Answer","text":"Yes. Share the result as text or as a branded image card, or send the This or That page link so friends can enter their own two options."}},
+        {"@type":"Question","name":"Does Whimfate save my options?","acceptedAnswer":{"@type":"Answer","text":"No account is needed. The options and recent decisions are handled in the current page session and are not sent to a Whimfate server by this tool."}},
+        {"@type":"Question","name":"Can I use This or That on a phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. The two-option decision maker works in modern mobile and desktop browsers, with controls and result cards that adapt to smaller screens."}}
+      ]}
+    ]
+  }
+  </script>
+  <title>This or That — Two-Option Decider | Whimfate</title>
+  <script src="../site.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="page-game-module page-this-or-that">
+  <div id="site-header"></div>
+  <main id="main-content" class="tat-page shell">
+    <header class="tat-intro">
+      <p class="tat-kicker"><span class="status-dot"></span> THE UNOFFICIAL DEPARTMENT OF DECISIONS</p>
+      <h1>THIS <em>OR</em> THAT</h1>
+      <p>Two things. One random pick. No committee required.</p>
+    </header>
+
+    <div class="tat-workspace">
+      <div class="tat-main-column">
+        <section class="tat-console" aria-labelledby="tat-console-title">
+          <div class="tat-console-head">
+            <div>
+              <span class="tat-overline">GIVE FATE TWO OPTIONS</span>
+              <h2 id="tat-console-title">What are we deciding?</h2>
+            </div>
+            <span class="tat-status"><span class="status-dot"></span><span id="tat-status-text">READY</span></span>
+          </div>
+
+          <form id="tat-form" novalidate>
+            <label class="tat-context-label" for="tat-context">
+              <span class="tat-control-label">THE SITUATION <small>OPTIONAL</small></span>
+              <input id="tat-context" name="context" type="text" maxlength="90" placeholder="Dinner, weekend plans, who goes first…" autocomplete="off">
+            </label>
+
+            <div class="tat-options-grid">
+              <label class="tat-option-input tat-option-input-a" for="tat-input-a">
+                <span class="tat-input-heading"><b>A</b><span>OPTION ONE</span></span>
+                <input id="tat-input-a" name="optionA" type="text" maxlength="90" placeholder="Pizza" autocomplete="off" required>
+              </label>
+              <div class="tat-input-or" aria-hidden="true">OR</div>
+              <label class="tat-option-input tat-option-input-b" for="tat-input-b">
+                <span class="tat-input-heading"><b>B</b><span>OPTION TWO</span></span>
+                <input id="tat-input-b" name="optionB" type="text" maxlength="90" placeholder="Sushi" autocomplete="off" required>
+              </label>
+            </div>
+
+            <p class="tat-validation" id="tat-validation" role="status" aria-live="polite"></p>
+            <button class="tat-decide-button" id="tat-decide" type="submit" disabled>
+              <span id="tat-decide-label">LET FATE DECIDE</span><b aria-hidden="true">↗</b>
+            </button>
+          </form>
+
+          <section class="tat-result" id="tat-result" hidden aria-live="polite" aria-atomic="true">
+            <p class="tat-result-kicker"><span class="status-dot"></span> FATE HAS PICKED</p>
+            <span class="tat-result-side" id="tat-result-side">OPTION A</span>
+            <h3 id="tat-result-value"></h3>
+            <p class="tat-result-context" id="tat-result-context"></p>
+            <p class="tat-result-line" id="tat-result-line"></p>
+          </section>
+
+          <div class="tat-session-row">
+            <div><span class="tat-session-number" id="tat-picks-count">0</span><span class="tat-session-label">DECISIONS MADE THIS VISIT</span></div>
+            <span class="tat-session-note" id="tat-session-note">Your indecision is safe here.</span>
+          </div>
+
+          <div class="tat-result-actions" id="tat-result-actions" hidden>
+            <span class="tat-overline">TAKE THE VERDICT WITH YOU</span>
+            <div class="tat-share-buttons">
+              <button class="tat-share-button tat-share-primary" id="tat-share-text" type="button">Share text</button>
+              <button class="tat-share-button" id="tat-share-picture" type="button">Share picture</button>
+              <button class="tat-share-button" id="tat-download-image" type="button">Download image</button>
+            </div>
+            <p class="tat-feedback" id="tat-feedback" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="tat-console-bottom">
+            <button class="tat-reset-button" id="tat-clear" type="button">Clear options</button>
+            <span>Two options in. A decision out.</span>
+          </div>
+        </section>
+
+        <section class="tat-history" aria-labelledby="tat-history-title">
+          <div class="tat-section-heading">
+            <div><span class="tat-overline">THE RECEIPTS</span><h2 id="tat-history-title">Recent decisions</h2></div>
+            <p>Last six picks. Then they vanish into fate.</p>
+          </div>
+          <div class="tat-history-list" id="tat-history-list"><p class="tat-empty">No decisions yet. Enjoy the rare moment of certainty.</p></div>
+        </section>
+      </div>
+
+      <aside class="tat-side-notes" aria-labelledby="tat-side-title">
+        <p class="tat-overline"><span class="status-dot"></span> A VERY SMALL DECISION MACHINE</p>
+        <h2 id="tat-side-title">Two options. <em>One gets picked.</em></h2>
+        <p>Use This or That whenever you have two perfectly reasonable options and absolutely no desire to keep comparing them. Enter your choices, let Whimfate make the random pick, and get on with your day.</p>
+        <p>Choose what to eat, where to go, which film to watch, who starts the game, or anything else that can be reduced to two options. Your choices are yours; the selection is left to chance.</p>
+        <div class="tat-side-facts"><div><strong>2</strong><span>options per decision</span></div><div><strong>1</strong><span>random result</span></div></div>
+        <a class="tat-side-link" href="/coin-flip/">Prefer a coin toss? Flip a coin <span aria-hidden="true">→</span></a>
+      </aside>
+    </div>
+
+    <section class="wf-share-section tat-share-section" aria-labelledby="tat-share-title">
+      <div class="wf-share-copy">
+        <p class="wf-share-overline">THE GROUP CHAT HAS ENOUGH OPINIONS</p>
+        <h2 id="tat-share-title">Share with your friends.</h2>
+        <p>Send them the decision maker. Let fate handle the next debate.</p>
+      </div>
+      <div class="wf-share-social-grid" aria-label="Share Whimfate This or That">
+        <button class="wf-share-social-link" type="button" data-share="whatsapp" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.3-4.9A8.4 8.4 0 1 1 20.5 11.8Z"/><path d="M9 8.2c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.2.2-.2.4 0 .6.5.8 1.2 1.4 2 1.8.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.7-.1l1.5.7c.3.1.4.3.4.5 0 .4-.2 1-.6 1.3-.4.4-1.1.6-1.8.5-1.1-.2-2.5-.8-3.8-2.1-1.1-1-1.8-2.3-2-3.3-.2-.9.1-1.5.5-1.9Z"/></svg><span>WhatsApp</span></button>
+        <button class="wf-share-social-link" type="button" data-share="telegram" aria-label="Share on Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 3-3.2 18-6.1-5.1-3.2 3.1.6-5.9L18 6.2 7.2 12.8 3 11.3 21 3Z"/></svg><span>Telegram</span></button>
+        <button class="wf-share-social-link" type="button" data-share="x" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h4.8l4.1 5.7L17.8 3H20l-6.1 7.1L21 21h-4.8l-4.6-6.4L6 21H3.8l6.5-7.8L4 3Zm4 1.8H7l9.2 14.4h1.1L8 4.8Z"/></svg><span>X</span></button>
+        <button class="wf-share-social-link" type="button" data-share="reddit" aria-label="Share on Reddit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2a2 2 0 0 1 2 2l-.2.9 3.1.7a2.2 2.2 0 1 1 .4 1.7l-3.8-.9-.8 3.1c2.9.1 5.2 1.4 5.2 3.1 0 2.1-2.6 3.8-5.9 3.8s-5.9-1.7-5.9-3.8c0-1.7 2.3-3 5.2-3.1l.9-3.5a.9.9 0 0 1 1.1-.7l3.9.9a2.2 2.2 0 0 1 .5-1.1l-3.9-.9a2 2 0 0 1-1.8 1.1 2 2 0 1 1 0-4Zm-2.8 9.9a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Zm5.6 0a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8ZM9.5 16a4.2 4.2 0 0 0 5 0"/></svg><span>Reddit</span></button>
+        <button class="wf-share-social-link" type="button" data-share="facebook" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.6 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4V13h2.8v8h3.4Z"/></svg><span>Facebook</span></button>
+        <button class="wf-share-social-link" type="button" data-share="discord" aria-label="Copy a message for Discord"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.8 5.6A17 17 0 0 0 15.7 4l-.5 1a15 15 0 0 0-6.4 0l-.5-1a17 17 0 0 0-4.1 1.6C1.6 9.4.9 13.1 1.2 16.8a16 16 0 0 0 5 2.5l1.1-1.8-1.7-.8.4-.3a12 12 0 0 0 12 0l.4.3-1.7.8 1.1 1.8a16 16 0 0 0 5-2.5c.4-4.3-.8-7.9-3-11.2ZM8.7 14.6c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Zm6.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8Z"/></svg><span>Discord</span></button>
+        <button class="wf-share-social-link" type="button" data-share="copy-link" aria-label="Copy Whimfate link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 14.4a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.7 1.7M14.4 9.6a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.7-1.7"/></svg><span>Copy link</span></button>
+      </div>
+      <p class="wf-share-feedback" id="tat-social-feedback" role="status" aria-live="polite">Share the two-option decider with your group chat.</p>
+    </section>
+
+    <section class="tat-seo-section" aria-labelledby="tat-seo-title">
+      <div class="tat-seo-heading"><p class="tat-overline">A SIMPLE WAY TO MAKE A PICK</p><h2 id="tat-seo-title">Two options. <em>One less decision.</em></h2></div>
+      <div class="tat-seo-copy">
+        <p>This or That is a free two-option random decision maker. Enter the two choices you are considering, press the button, and get one randomly selected result. It can be used for everyday decisions, quick group choices, friendly challenges, game nights, classroom activities, or any situation where you want chance to choose between two alternatives.</p>
+        <p>Unlike a question deck or a quiz, this tool does not require preset topics or prepared dilemmas. You supply both options yourself: what to eat, which film to watch, where to go, which task to do first, who starts a board game, or two completely unrelated ideas. The optional context field helps make the result easier to understand when you share it.</p>
+        <p>Use the result as a lighthearted tie-breaker, not as a substitute for important personal, medical, legal, or financial judgment. Your options and recent decisions stay in the current browser session. No account is needed, and you can share a text verdict or a branded result image with friends.</p>
+      </div>
+    </section>
+
+    <section class="tat-faq-section" aria-labelledby="tat-faq-title">
+      <div class="tat-faq-heading"><p class="tat-overline">QUICK ANSWERS</p><h2 id="tat-faq-title">This or That FAQ</h2></div>
+      <div class="tat-faq-list">
+        <details><summary>How does the This or That decision maker work?</summary><p>Enter one choice in Option A and another in Option B, then press Let Fate Decide. The tool randomly selects one of the two options and displays it as the result.</p></details>
+        <details><summary>Can I enter any two options?</summary><p>Yes. Add any pair of options you want: meals, places, films, activities, names, chores, game-night choices, or something entirely different. The optional situation field can describe what the decision is about.</p></details>
+        <details><summary>Is the choice really random?</summary><p>The tool uses a random bit from the browser's Web Crypto API when it is available. A standard browser-random fallback is used otherwise. The animation is only a visual reveal and does not influence which option is selected.</p></details>
+        <details><summary>Can I use it to settle a group decision?</summary><p>Yes. Enter the two options everyone is considering, make the selection, and share the result as text or as an image. It can be a quick way to settle low-stakes choices in a group chat or at a game table.</p></details>
+        <details><summary>Does Whimfate store the options I enter?</summary><p>No account is required. The options and recent decisions are processed in your browser and are not sent to a Whimfate server by this tool.</p></details>
+        <details><summary>Can I share the result on WhatsApp or Discord?</summary><p>Use Share text to send the decision and page link, Share picture to send the PNG through your device's share menu where supported, or Download image to attach it manually in WhatsApp, Discord, Telegram, or another app.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="tat-share-dialog" id="tat-share-dialog" aria-labelledby="tat-share-dialog-title">
+    <div class="tat-dialog-inner">
+      <div class="tat-dialog-head">
+        <div><p class="tat-overline">A LITTLE EVIDENCE FOR THE GROUP CHAT</p><h2 id="tat-share-dialog-title">Share the decision.</h2></div>
+        <button class="tat-dialog-close" id="tat-close-dialog" type="button" aria-label="Close share options">×</button>
+      </div>
+      <p class="tat-dialog-intro">Send the result card from your device when supported, or download it and attach it wherever the decision is being discussed.</p>
+      <div class="tat-dialog-preview"><img id="tat-share-preview" alt="Preview of the This or That result card" hidden><p id="tat-preview-loading">Preparing your result card…</p></div>
+      <div class="tat-dialog-actions">
+        <button class="tat-dialog-primary" id="tat-native-share" type="button" disabled>Share image with an app</button>
+        <button class="tat-dialog-secondary" id="tat-dialog-download" type="button" disabled>Download PNG</button>
+        <button class="tat-dialog-secondary" id="tat-dialog-copy" type="button" disabled>Copy result text</button>
+      </div>
+      <p class="tat-dialog-note" id="tat-dialog-note">Preparing the image…</p>
+      <div class="tat-dialog-socials" aria-label="Share result text with a network">
+        <button class="tat-dialog-social" type="button" data-dialog-share="whatsapp">WhatsApp</button>
+        <button class="tat-dialog-social" type="button" data-dialog-share="telegram">Telegram</button>
+        <button class="tat-dialog-social" type="button" data-dialog-share="x">X</button>
+        <button class="tat-dialog-social" type="button" data-dialog-share="reddit">Reddit</button>
+        <button class="tat-dialog-social" type="button" data-dialog-share="facebook">Facebook</button>
+        <button class="tat-dialog-social" type="button" data-dialog-share="discord">Discord</button>
+      </div>
+      <p class="tat-dialog-feedback" id="tat-dialog-feedback" role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+
+  <div id="site-footer"></div>
+</body>
+</html>
